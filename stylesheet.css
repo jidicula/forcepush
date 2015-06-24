@@ -3,8 +3,14 @@ p {
 }
 
 body {
-font-family: 'Roboto', sans-serif;
-font-size: 14px
+    padding-left: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px
+    padding-right: 10%;
+}
+
+small {
+    color: gray;
 }
 
 #footer {
@@ -17,4 +23,21 @@ font-size: 14px
     background: rgb(215, 40, 21);
     color: white;
     margin-left: 8px;
+}
+
+#page-wrap { 
+    width: 600px; 
+    margin: 15px auto; 
+    position: relative; 
+}
+
+#sidebar { 
+    display: inline;
+    width: 190px; 
+    position: fixed;
+    padding-left: 70%;
+}
+
+center {
+    text-align: center;
 }
