@@ -1,0 +1,20 @@
+p {
+
+}
+
+body {
+font-family: 'Roboto', sans-serif;
+font-size: 14px
+}
+
+#footer {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    line-height: 25px;
+    background: rgb(215, 40, 21);
+    color: white;
+    margin-left: 8px;
+}
