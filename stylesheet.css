@@ -9,35 +9,83 @@ body {
     padding-right: 10%;
 }
 
-small {
-    color: gray;
+/*main container, gives content area width and centers it horizontally
+width of wrap will be subtracted from width of the browser window (its container)*/
+#wrap {
+width:750px;
+margin:0 auto;
+position: relative;
+}
+
+h1 {
+margin:0;
+}
+
+#nav {
+padding:5px 10px;
+background:#FFF;
+}
+
+#main {
+float:left;
+width:480px;
+padding:10px;
+background:#FFF;
+}
+
+/*Setting position to fixed and margin-left will keep sidebar scrolling on page */
+#sidebar {
+float:right;
+width:270px;
+position:fixed;
+margin-left:775px;
 }
 
 #footer {
-    position: fixed; 
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 25px;
-    line-height: 25px;
-    background: rgb(215, 40, 21);
-    color: white;
-    margin-left: 8px;
+clear:both;
+padding:5px 10px;
 }
 
-#page-wrap { 
-    width: 600px; 
-    margin: 15px auto; 
-    position: relative; 
+#footer p {
+margin:0;
 }
 
-#sidebar { 
-    display: inline;
-    width: 190px; 
-    position: fixed;
-    padding-left: 70%;
+#nav ul {
+margin:0;
+padding:0;
+list-style:none;
 }
 
-center {
-    text-align: center;
+#nav li {
+display:inline;
+margin:0;
+padding:0;
+}
+
+#sidebar ul {
+list-style-type:none;
+}
+
+
+<!--links-->
+a:link {
+    color: black
+}
+a:visited {
+color: blue
+}
+a:hover {
+font-weight: bold
+}
+a:active {
+font-style: italic
+}
+.topnavlink {
+clear: left; margin-left: 1em; font-size: 1.1em
+}
+.sidenavlink {
+font-size: 1em
+}
+.footer {
+clear: left;
 }
