@@ -6,13 +6,13 @@ body {
     padding-left: 5%;
     font-family: 'Roboto', sans-serif;
     font-size: 14px
-    padding-right: 10%;
+    padding-right: 5%;
 }
 
 /*main container, gives content area width and centers it horizontally
 width of wrap will be subtracted from width of the browser window (its container)*/
 #wrap {
-width:750px;
+width:75px;
 margin:0 auto;
 position: relative;
 }
@@ -31,6 +31,7 @@ float:left;
 width:480px;
 padding:10px;
 background:#FFF;
+margin: 0 auto;
 }
 
 /*Setting position to fixed and margin-left will keep sidebar scrolling on page */
@@ -38,7 +39,7 @@ background:#FFF;
 float:right;
 width:270px;
 position:fixed;
-margin-left:775px;
+margin-left:800px;
 }
 
 #footer {
