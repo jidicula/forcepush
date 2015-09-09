@@ -11,10 +11,10 @@ body {
 
 /*main container, gives content area width and centers it horizontally
 width of wrap will be subtracted from width of the browser window (its container)*/
-#wrap {
-width:75px;
-margin:0 auto;
-position: relative;
+#wrapper {
+width:750px;
+/*margin:0 auto;
+position: relative;*/
 }
 
 h1 {
