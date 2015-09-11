@@ -10,6 +10,7 @@ body {
   padding: 10px;
   float: left;
   background-color: #FFF;
+  margin:0 auto;
 }
 #sidebar {
   width: 270px;
