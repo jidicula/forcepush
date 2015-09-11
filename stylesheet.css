@@ -1,0 +1,72 @@
+body {
+  margin:0;
+  padding-left:5%;
+  padding-right: 5%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+#main {
+  max-width:480px;
+  height: 750px; /*can be anything, just should make sure it is taller than the sidebar*/
+  padding: 10px;
+  float: left;
+  background-color: #FFF;
+}
+#sidebar {
+  width: 270px;
+  background-color: #ccc;
+  min-height: 200px;
+  margin: 10px 0 15px 0; /*controls the cutoff of the top and bottom limitations*/
+  padding-right:75px;
+  float: right; /* float right for a right aligned sidebar */
+}
+#footer {
+  width: 940px;
+  clear:both;
+  background-color: #FFF;
+  height: 18px;
+  margin-top: 100px;
+}
+#wrapper {
+  width: 940px; /* MUST HAVE WIDTH SET, should be the sidebar width + main width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#nav ul {
+margin:0;
+padding:0;
+list-style:none;
+}
+
+#nav li {
+display:inline;
+margin:0;
+padding:0;
+}
+
+#sidebar ul {
+list-style-type:none;
+}
+<!--links-->
+a:link {
+    color: black
+}
+a:visited {
+color: blue
+}
+a:hover {
+font-weight: bold
+}
+a:active {
+font-style: italic
+}
+.topnavlink {
+clear: left; margin-left: 1em; font-size: 1.1em
+}
+.sidenavlink {
+font-size: 1em
+}
+.footer {
+clear: left;
+}
