@@ -22,14 +22,12 @@ margin-right:300px;
     }
 /*Setting position to fixed and margin-left will keep sidebar scrolling on page */
     #sidebar {
-	float:right;
-	z-index:50;
-	position:absolute;
-	top:0;
+	position:fixed;
 	right:0;
 	width:270px;
 	padding-right:75px;
 	margin-left:800px;
+	overflow:scroll;
     }
 
 #footer {
