@@ -20,7 +20,7 @@ body {
   float: right; /* float right for a right aligned sidebar */
 }
 #footer {
-  width: 940px;
+  width: 750px;
   clear:both;
   background-color: #FFF;
   height: 18px;
