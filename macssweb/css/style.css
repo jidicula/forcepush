@@ -23,7 +23,7 @@
 	}
 
 	a {
-		color: #ed6663;
+		color: inherit;;
 		text-decoration: underline;
 	}
 
@@ -866,6 +866,13 @@
 		top: 0;
 	}
 
+  a {
+
+  }
+    a:hover {
+      color: #ed6663;
+    }
+
 	#header {
 		background-color: #202222;
 		color: #ffffff;
@@ -919,7 +926,7 @@
 						-o-transition: color 0.2s ease-in-out;
 						-ms-transition: color 0.2s ease-in-out;
 						transition: color 0.2s ease-in-out;
-						color: de524f;
+						color: #ed6663;
 						display: inline-block;
 						text-decoration: none;
 					}
@@ -957,7 +964,7 @@
 /* Banner */
 
 	#banner {
-		background: url("images/overlay.png"), url("../images/banner.jpg");
+		background: url("images/overlay.png"), url("../images/sadb/m1.jpg");
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
