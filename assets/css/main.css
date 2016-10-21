@@ -1432,7 +1432,7 @@
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 200;
-		line-height: 1;
+		line-height: 1.35;
 	}
 
 		@media screen and (max-width: 1280px) {
