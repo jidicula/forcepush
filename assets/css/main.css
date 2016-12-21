@@ -1409,7 +1409,7 @@
 	}
 
 	body {
-		background-color: #404040;
+    background-color: #607d8b;
 		background-size: cover;
 		background-position: top center;
 	}
@@ -1611,7 +1611,7 @@
 	}
 
 	header p {
-		color: rgba(255, 255, 255, 0.65);
+		color: #CFD8DC;
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
@@ -2587,7 +2587,7 @@
 	}
 
 		#header h1 {
-			color: rgba(255, 255, 255, 0.65);
+			color: #CFD8DC;
 		}
 
 		#header .avatar {
