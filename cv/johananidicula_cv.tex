@@ -3,7 +3,17 @@
 	]
 	{article}
 \pagestyle{empty}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[1.5pt]}]
+  
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries}{\thesubsection}{1em}{}[{\titlerule[0.5pt]}]
+
 \usepackage{parskip,multicol}
+
 \usepackage[%
 	bookmarks=true,         % show bookmarks bar?
 	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
@@ -28,7 +38,7 @@
 	{hyperref}%
 
 \title{Johanan Idicula}
-\author{\url{johanan.idicula@mail.mcgill.ca} \and \href{https://jidicula.github.io/}{\tt{jidicula.github.io}}}
+\author{\url{johanan.idicula@mail.mcgill.ca} \\ \href{https://jidicula.github.io/}{\tt{jidicula.github.io}}}
 \date{} % delete this line to display the current date
 
 %%% BEGIN DOCUMENT
@@ -39,52 +49,30 @@
 
 I'm a 3rd year \href{http://www.mcgill.ca/anatomy/}{Anatomy and Cell Biology} student at McGill University in Montr\'eal, Qu\'ebec. I'm also an undergraduate research assistant at the \href{http://bam.lab.mcgill.ca/}{Biological and Active Materials Lab} under the supervision of Professor Allen J. Ehrlicher in the McGill Department of Bioengineering.
 
-\begin{multicols}{2}
-
 \section*{Research Interests}
 
-Cell Mechanics
-
-Mechanotransduction
-
-Gene editing via CRISPR
+Cell Mechanics, Mechanotransduction, Gene Editing via CRISPR, ACTN4
 
 \section*{Lab Skills}
 
-\href{https://jidicula.github.io/images/micropattern.jpg}{Microcontact Printing}
+\href{https://jidicula.github.io/images/micropattern.jpg}{Microcontact Printing}, Quantitative Confocal Microscopy, Mammalian Cell Culture, Plasmid Purification, Bacterial Cell Culture
 
-Mammalian Cell Culture
 
-Quantitative Confocal Microscopy
+\section*{\href{https://github.com/jidicula}{Languages I know}}
 
-Plasmid Purification
+Java (and Eclipse IDE), HTML/CSS, Markdown, LaTeX, MATLAB, Python
 
-Bacterial Cell Culture
+\section*{Languages I'm learning}
 
-\section*{Languages}
-\subsection*{\href{https://github.com/jidicula}{\ldots{}that I know}}
-
-Java (and Eclipse IDE)
-
-HTML/CSS
-
-Markdown
-
-LaTeX
-
-MATLAB
-
-Python
-
-\subsection*{\ldots{}that I'm learning}
-
-R
-
-French: Basic reading and speaking
+R, Basic French
 
 \section*{Other}
+
 Strong writing and critical thinking skills
-\section*{Web Design}
+
+Careful attention to detail
+
+\subsection*{Web Design}
 \href{https://macssmcgill.github.io/}{MACSS}
 
 \href{https://sarinalalla.github.io/}{Sarina Lalla}
@@ -97,7 +85,5 @@ J.W. McConnell Entrance Scholarship
 
 \subsection*{Colonel Gray High School: \emph{2011-2014}}
 International Baccalaureate Diploma Programme
-
-\end{multicols}
 
 \end{document}
