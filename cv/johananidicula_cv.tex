@@ -4,6 +4,7 @@
 	{article}
 \pagestyle{empty}
 \usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
 \usepackage{titlesec}
 
 \titleformat{\section}
@@ -44,15 +45,20 @@
 
 %%% BEGIN DOCUMENT
 \begin{document}
+\pagestyle{fancy}
+\setlength\headheight{14pt}
+\fancyhead[r]{Updated \today}
 
 \maketitle
-\thispagestyle{empty}
+\thispagestyle{fancy}
 
-I'm a 4th year \href{http://www.mcgill.ca/anatomy/}{Anatomy and Cell Biology} student at McGill University in Montr\'eal, Qu\'ebec. I'm also an undergraduate research assistant at the \href{http://bam.lab.mcgill.ca/}{Biological and Active Materials Lab} under the supervision of Professor Allen J. Ehrlicher in the McGill Department of Bioengineering.
+
+
+I'm a 4th year \href{http://www.mcgill.ca/anatomy}{Anatomy and Cell Biology} student at McGill University in Montr\'eal, Qu\'ebec. I'm also an undergraduate research assistant at the \href{http://bam.lab.mcgill.ca/}{Biological and Active Materials Lab} under the supervision of Professor Allen J. Ehrlicher in the McGill Department of Bioengineering.
 
 \section*{Research Interests}
 
-Cell Mechanics, Mechanotransduction, Gene Editing via CRISPR, ACTN4
+Cell Mechanics, \href{http://bam.lab.mcgill.ca/project_pages/ACTN4_Mechanosensitivity.html}{Mechanotransduction}, Gene Editing via CRISPR, ACTN4, Quantitative Imaging, Image Processing
 
 \section*{Lab Skills}
 
@@ -61,7 +67,7 @@ Cell Mechanics, Mechanotransduction, Gene Editing via CRISPR, ACTN4
 
 \section*{\href{https://github.com/jidicula}{Languages I know}}
 
-\textbf{Programming:} Java, Python, MATLAB, R, Bash
+\textbf{Programming:} Java, Python, MATLAB, Bash, R
 
 \textbf{Markup:} HTML, CSS, \LaTeX
 
