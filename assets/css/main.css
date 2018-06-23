@@ -1440,7 +1440,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 /* Type */
 
 body, input, select, textarea {
-    color: rgba(255, 255, 255);
+    color: #F8F7F0;
     font-family: "TeX-Gyre-Heros-Regular", Helvetica, sans-serif;
     font-size: 1.75vw;
     font-weight: 100;
@@ -1458,7 +1458,7 @@ body, input, select, textarea {
 a {
     color: inherit;
     text-decoration: none;
-    border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+    border-bottom: dotted 1px rgba(248,247,240, 0.5);
     -moz-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -webkit-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -ms-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1625,7 +1625,7 @@ section.special, article.special {
 }
 
 header p {
-    color: #FFFFFF;
+    color: #F8F7F0;
     position: relative;
     margin: 0 0 1.5em 0;
 }
@@ -2369,7 +2369,7 @@ button:disabled,
 .button:disabled {
     background-color: rgba(255, 255, 255, 0.65) !important;
     box-shadow: inset 0 -0.15em 0 0 rgba(0, 0, 0, 0.15);
-    color: #000 !important;
+    color: #F8F7F0 !important;
     cursor: default;
     opacity: 0.25;
 }
