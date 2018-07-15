@@ -1471,6 +1471,7 @@ a:hover {
 
 strong, b {
     color: #F8F7F0;
+    font-family: "TeX-Gyre-Heros-Bold", Helvetica, sans-serif;
     font-weight: 200;
 }
 
