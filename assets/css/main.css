@@ -1440,7 +1440,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 body, input, select, textarea {
     color: #F8F7F0;
     font-family: "TeX-Gyre-Heros-Regular", Helvetica, sans-serif;
-    font-size: 3.7vmin;
+    font-size: 3.5vmin;
     font-weight: 100;
     line-height: 1.35;
 }
