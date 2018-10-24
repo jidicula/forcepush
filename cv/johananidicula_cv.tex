@@ -5,8 +5,12 @@
 \pagestyle{empty}
 \usepackage[margin=1in]{geometry}
 \usepackage{fancyhdr}
+\usepackage{graphicx}
 \usepackage{titlesec}
+\usepackage{array}
+\usepackage{textgreek}
 \usepackage{newtxsf}
+\usepackage{fontawesome}
 % Uncomment next 2 lines to use TeX Gyre Heros sans serif
 \usepackage{tgheros,tgtermes}
 \renewcommand{\familydefault}{\sfdefault}
@@ -42,17 +46,30 @@
 	]
 	{hyperref}%
 
-\title{\textbf{Johanan Idicula}}
-\author{\href{mailto:johanan.idicula@mail.mcgill.ca}{\tt{johanan.idicula@mail.mcgill.ca}} \\ \href{https://jidicula.github.io/}{\tt{jidicula.github.io}}}
+\title{\bfseries\Huge Johanan Idicula}
+\author{\tt{\faEnvelopeO{} \href{mailto:johanan.idicula@mail.mcgill.ca}{johanan.idicula@mail.mcgill.ca}} \\ \tt{\faGlobe{} \href{https://jidicula.github.io/}{jidicula.github.io}}}
 \date{} % delete this line to display the current date
+
+\newcolumntype{L}{>{\raggedleft}p{0.14\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
 
 %%% BEGIN DOCUMENT
 \begin{document}
+
+\begin{minipage}{0.65\textwidth}
+\begingroup
+\maketitle
+\endgroup
+\end{minipage}                  % Don't put space between minipage environments!
+\begin{minipage}{0.3\textwidth}
+  \flushright{\includegraphics[width=0.8\textwidth]{../images/avatar_circle.png}} 
+\end{minipage}
+
 \pagestyle{fancy}
 \setlength\headheight{14pt}
 \fancyhead[r]{Updated \today}
 
-\maketitle
+
 \thispagestyle{fancy}
 
 I'm a 4th year \href{http://www.mcgill.ca/anatomy}{Anatomy and Cell Biology} student at McGill University in Montr\'eal, Qu\'ebec. I'm also an undergraduate research assistant at the \href{http://bam.lab.mcgill.ca/}{Biological and Active Materials Lab} under the supervision of Professor Allen J. Ehrlicher in the McGill Department of Bioengineering.
@@ -86,17 +103,18 @@ Careful attention to detail
 
 Excellent proofreading and editing
 
-\subsection*{Web Design}
+Narration
+
+\section*{Web Design}
 \href{https://jidicula.github.io/macssmcgill/index.html}{MACSS}
 
 \href{https://sarinalalla.github.io/}{Sarina Lalla's E-portfolio}
 
 \section*{Education}
-\subsubsection*{B.Sc. Anatomy and Cell Biology}
-McGill University: \emph{2014--2018}
-
-\subsubsection*{International Baccalaureate Diploma Programme}
-Colonel Gray High School: \emph{2011--2014}
+\begin{tabular}{LR}
+{\bf 2014--2018}&{\bf B.Sc. Anatomy and Cell Biology, McGill University, Canada}\\[5pt]
+2011--2014&International Baccalaureate Diploma, Colonel Gray High School, Canada.\\
+\end{tabular}
 
 \section*{Awards}
 \subsubsection*{2018 McGill Anatomy and Cell Biology Research Retreat Undergraduate Travel Award}
@@ -104,5 +122,16 @@ Award covering cost of attendance at annual research retreat for trainees and fa
 
 \subsubsection*{2014 J.W. McConnell Entrance Scholarship}
 McGill entrance scholarship for high school academic performance covering tuition and fees for the first year of the undergraduate degree.
+
+\section*{Posters and Talks}
+
+\begin{tabular}{LR}
+  {\bf 2018-07-06}&{\bf Probing the Mechanosensitivity of \textalpha-actinin-4 Nuclear Translocation}\\[5pt]
+                  &Poster presented at the 2018 ACB Annual Departmental Retreat, McGill University.\\[5pt]
+  {\bf 2018-04-05}&{\bf Probing the Mechanosensitivity of \textalpha-actinin-4 Nuclear Translocation}\\[5pt]
+                  &Talk presented at the McGill Integrative Bioscience Society Research Symposium, McGill University.\\[5pt]
+  {\bf 2017-06-08}&{\bf Probing the Mechanosensitivity of ACTN4 nuclear translocation}\\[5pt]
+                  &Talk presented at the 7th Annual Quantitative Life Science Symposium, McGill University.\\[5pt]
+\end{tabular}
 
 \end{document}
