@@ -2,13 +2,13 @@
 layout: post
 title: Modular Programming in C
 date: 2020-05-14 11:51:27 -0400
-categories: C-programming Makefile gmake preprocessor modular-programming
+categories: C-programming
 ---
 
 <a name="intro"></a>
 # [Introduction](#intro)
 
-Today, I'm going to demonstrate the concept of modular programming in C. Together, we'll build a simple integer arithmetic calculator. By the end of this, you'll have an idea of how to do modular programming in C with the use of header files, library files, include guards, and Makefile.
+Today I'm going to demonstrate the concept of modular programming in C. Together, we'll build a simple integer arithmetic calculator. By the end of this, you'll have an idea of how to do modular programming in C with the use of header files, library files, include guards, and Makefile.
 
 Our program will function like this:
 ```bash
