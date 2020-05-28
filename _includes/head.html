@@ -17,4 +17,8 @@
 <meta name="msapplication-config" content="/icons/browserconfig.xml?v=OmK2lELJqY">
 <meta name="theme-color" content="#ffffff">
 
+  <!-- Google analytics -->
+  {% if site.google_analytics and jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
 </head>
