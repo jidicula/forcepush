@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: force push
-email: johanan.idicula+blog@gmail.com
+email: johanan+blog@forcepush.tech
 description: >- # this means to ignore newlines until "baseurl:"
   Musings and how-to's
 baseurl: "" # the subpath of your site, e.g. /blog

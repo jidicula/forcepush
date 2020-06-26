@@ -6,7 +6,9 @@ permalink: /contact/
 
 # Johanan Idicula
 
-johanan.idicula+blog@gmail.com
+johanan+blog@forcepush.tech
+
+[PGP Key (forcepush.tech)](./johanan-94CC8CDB-Public.asc)
 
 [PGP Key (gmail)](./jidicula_608066E1-Public.asc)
 

@@ -289,7 +289,7 @@ This program demonstrates modular programming using C header files, `#ifndef OPE
 
 The repository in its final state can be viewed [here][repo].
 
-Questions? Comments? Write to me at johanan.idicula+blog@gmail.com.
+Questions? Comments? Write to me at johanan+blog@forcepush.tech.
 
 [repo]: https://github.com/jidicula/c-calculator
 [atomic-commit]: https://curiousprogrammer.io/blog/why-i-create-atomic-commits-in-git
