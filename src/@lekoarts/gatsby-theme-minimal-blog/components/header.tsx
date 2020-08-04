@@ -31,7 +31,7 @@ const Header = () => {
             sx={{
               my: 0,
               fontWeight: `${theme.fontWeights.heading}`,
-              fontSize: [3, 4],
+              fontSize: [3, 6],
             }}
           >
             {siteTitle}
