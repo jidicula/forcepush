@@ -33,15 +33,17 @@ const Footer = () => {
         variant: `dividers.top`,
       }}
     >
-      <h1
-        sx={{
-          my: 0,
-          fontWeight: `${theme.fontWeights.heading}`,
-          fontSize: 4,
-        }}
-      >
-        {siteTitle}
-      </h1>
+      <Styled.a aria-label="License" href="/">
+        <h1
+          sx={{
+            my: 0,
+            fontWeight: `${theme.fontWeights.heading}`,
+            fontSize: 4,
+          }}
+        >
+          {siteTitle}
+        </h1>
+      </Styled.a>
       <IconContext.Provider
         value={{ style: { verticalAlign: "middle" }, size: "1.2em" }}
       >
