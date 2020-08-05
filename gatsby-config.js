@@ -7,7 +7,7 @@ module.exports = {
     siteDescription:
       "Musings and how-to's by Johanan Idicula, a software developer",
     siteLanguage: "en",
-    siteImage: "/forcepush-banner.jpg",
+    siteImage: "/banner.png",
     author: "Johanan Idicula",
   },
   plugins: [
