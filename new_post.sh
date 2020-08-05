@@ -2,6 +2,7 @@
 
 DATE=$(date +"%Y-%m-%d %H:%M:%S %z")
 TITLE=$1
+TITLE_SLUG=$(echo "$TITLE" | tr ' ' '-')
 TITLE_DATE="$(date +"%Y-%m-%d")"
 
 echo -e "---
@@ -10,4 +11,4 @@ date: $DATE
 excerpt:
 tags:
  - Some-tag
----" > content/posts/"$TITLE_DATE"-"$TITLE".md
+---" > content/posts/"$TITLE_DATE"-"$TITLE_SLUG".md
