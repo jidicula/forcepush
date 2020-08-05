@@ -45,7 +45,7 @@ module.exports = {
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-google-analytics",
-      trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      trackingId: "UA-57608712-2",
       head: true,
       anonymize: true,
     },
@@ -103,6 +103,16 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/content/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `jidicula-resume`,
+        remote: `https://github.com/jidicula/jidicula-resume.git`,
+        branch: `master`,
+        // Only import the compiled PDF.
+        patterns: `**.pdf`,
       },
     },
   ],
