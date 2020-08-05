@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0 (4035a4f, 2020-05-01)"
-   sodipodi:docname="favicon.svg"
-   id="svg58"
-   version="1.1"
-   viewBox="0 0 12 16"
+   width="16"
    height="16"
-   width="12">
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg58"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)">
   <metadata
      id="metadata64">
     <rdf:RDF>
@@ -29,29 +29,30 @@
   <defs
      id="defs62" />
   <sodipodi:namedview
-     inkscape:current-layer="svg58"
-     inkscape:window-maximized="0"
-     inkscape:window-y="90"
-     inkscape:window-x="178"
-     inkscape:cy="8.4387569"
-     inkscape:cx="6"
-     inkscape:zoom="34.1875"
-     inkscape:pagecheckerboard="false"
-     showgrid="false"
-     id="namedview60"
-     inkscape:window-height="744"
-     inkscape:window-width="1114"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
+     inkscape:document-rotation="0"
+     pagecolor="#000000"
      bordercolor="#666666"
-     pagecolor="#000000" />
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1241"
+     inkscape:window-height="755"
+     id="namedview60"
+     showgrid="false"
+     inkscape:pagecheckerboard="false"
+     inkscape:zoom="34.1875"
+     inkscape:cx="6"
+     inkscape:cy="8.4387569"
+     inkscape:window-x="39"
+     inkscape:window-y="90"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg58" />
   <path
-     style="fill:#ffffff"
+     fill-rule="evenodd"
+     d="m 12,9 h -2 v 7 H 8 V 9 H 6 L 8.25,6 H 6 L 9,2 12,6 H 9.75 Z M 13,0 H 3 C 2.45,0 2,0.45 2,1 v 12 c 0,0.55 0.45,1 1,1 H 7 V 13 H 3 V 11 H 7 V 10 H 4 V 1 h 9 v 9 h -2 v 1 h 2 v 2 h -2 v 1 h 2 c 0.55,0 1,-0.45 1,-1 V 1 C 14,0.45 13.55,0 13,0 Z"
      id="path56"
-     d="M10 9H8v7H6V9H4l2.25-3H4l3-4 3 4H7.75L10 9zm1-9H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h4v-1H1v-2h4v-1H2V1h9v9H9v1h2v2H9v1h2c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1z"
-     fill-rule="evenodd" />
+     style="fill:#ffffff" />
 </svg>
