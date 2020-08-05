@@ -5,8 +5,9 @@ TITLE=$1
 TITLE_DATE="$(date +"%Y-%m-%d")"
 
 echo -e "---
-layout: post
 title: $TITLE
 date: $DATE
-categories: FILL THESE IN
----" > _posts/"$TITLE_DATE"-"$TITLE".md
+excerpt:
+tags:
+ - Some-tag
+---" > content/posts/"$TITLE_DATE"-"$TITLE".md

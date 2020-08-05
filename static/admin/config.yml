@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: jidicula/jidicula.github.io
+
+media_folder: content/assets
+public_folder: ../assets
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content/posts
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: date, label: Date, widget: datetime }
+      - { name: exerpt, label: Experpt, widget: text }
+      - { name: tags, label: Tags, widget: list, allow_add: true }
+      - { name: body, label: Body, widget: markdown }
+  - name: pages
+    label: Pages
+    folder: content/pages
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: slug, label: Slug }
+      - { name: body, label: Body, widget: markdown }
