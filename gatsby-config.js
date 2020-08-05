@@ -111,6 +111,7 @@ module.exports = {
         name: `jidicula-resume`,
         remote: `https://github.com/jidicula/jidicula-resume.git`,
         branch: `master`,
+        local: "./public/jidicula-resume",
         // Only import the compiled PDF.
         patterns: `**.pdf`,
       },
