@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="banner.svg"
+   id="svg58"
+   version="1.1"
+   viewBox="0 0 1200 630"
+   height="630"
+   width="1200"
+   inkscape:export-filename="/Users/johanan/prog/forcepush/static/banner.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <metadata
+     id="metadata64">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs62">
+    <rect
+       x="413.2854"
+       y="233.59609"
+       width="767.27332"
+       height="186.87688"
+       id="rect17" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:current-layer="svg58"
+     inkscape:window-maximized="1"
+     inkscape:window-y="23"
+     inkscape:window-x="1280"
+     inkscape:cy="273.81427"
+     inkscape:cx="464.09832"
+     inkscape:zoom="1.4113072"
+     inkscape:pagecheckerboard="true"
+     showgrid="false"
+     id="namedview60"
+     inkscape:window-height="1035"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#000000"
+     inkscape:document-rotation="0" />
+  <rect
+     y="0"
+     x="0"
+     height="630"
+     width="1200"
+     id="rect25"
+     style="fill:#000000;stroke:none;stroke-width:7.87654" />
+  <path
+     style="fill:#ffffff;stroke-width:21.588"
+     id="path56"
+     d="M 309.31878,336.58805 H 266.14271 V 487.70427 H 222.96664 V 336.58805 h -43.17607 l 48.57308,-64.76412 h -48.57308 l 64.76411,-86.35212 64.7641,86.35212 H 260.7457 Z M 330.90681,142.29574 H 115.02647 c -11.87342,0 -21.588032,9.71461 -21.588032,21.58803 v 259.05641 c 0,11.87342 9.714612,21.58803 21.588032,21.58803 h 86.35214 v -21.58803 h -86.35214 v -43.17607 h 86.35214 v -21.58803 h -64.7641 V 163.88377 h 194.2923 v 194.29231 h -43.17606 v 21.58803 h 43.17606 v 43.17606 h -43.17606 v 21.58804 h 43.17606 c 11.87342,0 21.58804,-9.71461 21.58804,-21.58804 v -259.0564 c 0,-11.87341 -9.71462,-21.58803 -21.58804,-21.58803 z"
+     fill-rule="evenodd" />
+  <text
+     xml:space="preserve"
+     id="text15"
+     style="font-style:normal;font-weight:normal;font-size:149.33299999999999841px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect17);fill:#000000;fill-opacity:1;stroke:none;"
+     transform="translate(0,-18.620612)"><tspan
+       x="413.28516"
+       y="374.63945"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:149.333px;font-family:'Helvetica Neue';-inkscape-font-specification:'Helvetica Neue Light';fill:#ffffff">force push</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:48px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+     x="413.17316"
+     y="444.65201"
+     id="text23"><tspan
+       sodipodi:role="line"
+       id="tspan21"
+       x="413.17316"
+       y="444.65201"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:48px;font-family:'Helvetica Neue';-inkscape-font-specification:'Helvetica Neue Light';fill:#ffffff">By Johanan Idicula</tspan></text>
+</svg>

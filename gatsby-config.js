@@ -7,7 +7,7 @@ module.exports = {
     siteDescription:
       "Musings and how-to's by Johanan Idicula, a software developer",
     siteLanguage: "en",
-    /* siteImage: "/banner.jpg", */
+    siteImage: "/banner.png",
     author: "Johanan Idicula",
   },
   plugins: [
@@ -35,7 +35,7 @@ module.exports = {
           },
           {
             title: "Contact",
-            slug: "contact",
+            slug: "/contact",
           },
         ],
         formatString: "YYYY-MM-DD",
@@ -111,6 +111,7 @@ module.exports = {
         name: `jidicula-resume`,
         remote: `https://github.com/jidicula/jidicula-resume.git`,
         branch: `master`,
+        local: "./public/jidicula-resume",
         // Only import the compiled PDF.
         patterns: `**.pdf`,
       },
