@@ -12,6 +12,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-57608712-2",
+        head: true,
+        anonymize: true,
+      },
+    },
+    {
       resolve: "gatsby-theme-mdx-deck",
       options: {
         // enable or disable gatsby-plugin-mdx
@@ -43,12 +51,7 @@ module.exports = {
     },
     "@pauliescanlon/gatsby-mdx-embed",
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      trackingId: "UA-57608712-2",
-      head: true,
-      anonymize: true,
-    },
+
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -117,4 +120,4 @@ module.exports = {
       },
     },
   ],
-};
+}
