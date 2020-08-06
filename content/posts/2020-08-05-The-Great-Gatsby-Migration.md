@@ -114,7 +114,7 @@ The cause of this was one of the key features of Gatsby and Netlify: caches of p
 
 # Font Awesome
 
-[Font Awesome](https://fontawesome.com) is a beautifully designed icon set allowing you essentially embed logos and pictographs in Markup text (or as a font). I wanted to use Font Awesome for GitHub and LinkedIn logos in my site footer. The [reference docs](https://fontawesome.com/how-to-use/on-the-web/using-with/react) for using Font Awesome in React weren't exactly clear to me in how I could use it within an existing Gatsby site, so I quickly got lost. Fortunately, I stumbled on the [react-icons](https://github.com/react-icons/react-icons) package, which includes Font Awesome support! Adding it to the [footer](https://github.com/jidicula/jidicula.github.io/blob/master/src/%40lekoarts/gatsby-theme-minimal-blog/components/footer.tsx) of my site was extremely simple:
+[Font Awesome](https://fontawesome.com) is a beautifully designed icon set allowing you essentially embed logos and pictographs in Markup text (or as a font). I wanted to use Font Awesome for GitHub and LinkedIn logos in my site footer. The [reference docs](https://fontawesome.com/how-to-use/on-the-web/using-with/react) for using Font Awesome in React weren't exactly clear to me in how I could use it within an existing Gatsby site, so I quickly got lost. Fortunately, I stumbled on the [react-icons](https://github.com/react-icons/react-icons) package, which includes Font Awesome support! Adding it to the [footer](https://github.com/jidicula/forcepush/blob/master/src/%40lekoarts/gatsby-theme-minimal-blog/components/footer.tsx) of my site was extremely simple:
 
 ```js
 // ...
@@ -163,6 +163,6 @@ So with the site nearly finished at this point, I started looking at how to opti
 
 # Wrap-up
 
-So, hopefully this post has given you insight into some finer details of setting up a Gatsby site including files from a secondary GitHub repo (which will come in handy for a project showcase or resume hosting), using Font Awesome, and optimizing a Netlify build. The website repo can be viewed [here](https://github.com/jidicula/jidicula.github.io) and my resume repo can be viewed [here](https://github.com/jidicula/jidicula-resume).
+So, hopefully this post has given you insight into some finer details of setting up a Gatsby site including files from a secondary GitHub repo (which will come in handy for a project showcase or resume hosting), using Font Awesome, and optimizing a Netlify build. The website repo can be viewed [here](https://github.com/jidicula/forcepush) and my resume repo can be viewed [here](https://github.com/jidicula/jidicula-resume).
 
 Questions? Comments? Write to me at johanan+blog@forcepush.tech.
