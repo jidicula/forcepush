@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
-import { jsx, Styled } from "theme-ui";
-import theme from "../../../gatsby-plugin-theme-ui/index.js";
+import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
+import { jsx, Styled } from "theme-ui"
+import theme from "../../../gatsby-plugin-theme-ui/index.js"
 
-import { IconContext } from "react-icons";
+import { IconContext } from "react-icons"
 import {
   FaCopyright,
   FaPaperPlane,
@@ -17,7 +17,7 @@ import {
 } from "react-icons/fa"
 
 const Footer = () => {
-  const { author, siteTitle } = useSiteMetadata();
+  const { author, siteTitle } = useSiteMetadata()
 
   return (
     <footer
@@ -118,7 +118,7 @@ const Footer = () => {
         </div>
       </IconContext.Provider>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
