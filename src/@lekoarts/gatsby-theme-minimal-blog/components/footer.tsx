@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
-import { jsx, Styled } from "theme-ui";
-import theme from "../../../gatsby-plugin-theme-ui/index.js";
+import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
+import { jsx, Styled } from "theme-ui"
+import theme from "../../../gatsby-plugin-theme-ui/index.js"
 
-import { IconContext } from "react-icons";
+import { IconContext } from "react-icons"
 import {
   FaCopyright,
   FaPaperPlane,
@@ -13,10 +13,11 @@ import {
   FaHeart,
   FaPalette,
   FaGithub,
-} from "react-icons/fa";
+  FaMedium,
+} from "react-icons/fa"
 
 const Footer = () => {
-  const { author, siteTitle } = useSiteMetadata();
+  const { author, siteTitle } = useSiteMetadata()
 
   return (
     <footer
@@ -56,6 +57,8 @@ const Footer = () => {
               <FaCopyright /> {new Date().getFullYear()} {author}{" "}
             </Styled.a>
           </div>
+
+          <div class="row">&nbsp; </div>
           <div class="row">
             <div class="column">
               <Styled.a
@@ -84,9 +87,18 @@ const Footer = () => {
               <FaLinkedin /> jidicula
             </Styled.a>
           </div>
+          <div class="row">
+            <Styled.a
+              aria-label="Medium Profile"
+              href="https://medium.com/@jidicula"
+            >
+              <FaMedium /> jidicula
+            </Styled.a>
+          </div>
         </div>
         <div class="column">
           <div class="row">Musings and how-to's </div>
+          <div class="row">&nbsp; </div>
           <div class="row">
             <FaLaptopCode /> with <FaHeart /> and{" "}
             <Styled.a
@@ -106,7 +118,7 @@ const Footer = () => {
         </div>
       </IconContext.Provider>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
