@@ -13,7 +13,8 @@ import {
   FaHeart,
   FaPalette,
   FaGithub,
-} from "react-icons/fa";
+  FaMedium,
+} from "react-icons/fa"
 
 const Footer = () => {
   const { author, siteTitle } = useSiteMetadata();
@@ -56,6 +57,8 @@ const Footer = () => {
               <FaCopyright /> {new Date().getFullYear()} {author}{" "}
             </Styled.a>
           </div>
+
+          <div class="row">&nbsp; </div>
           <div class="row">
             <div class="column">
               <Styled.a
@@ -84,9 +87,18 @@ const Footer = () => {
               <FaLinkedin /> jidicula
             </Styled.a>
           </div>
+          <div class="row">
+            <Styled.a
+              aria-label="Medium Profile"
+              href="https://medium.com/@jidicula"
+            >
+              <FaMedium /> jidicula
+            </Styled.a>
+          </div>
         </div>
         <div class="column">
           <div class="row">Musings and how-to's </div>
+          <div class="row">&nbsp; </div>
           <div class="row">
             <FaLaptopCode /> with <FaHeart /> and{" "}
             <Styled.a
