@@ -3,7 +3,7 @@ module.exports = {
     siteTitle: "force push",
     siteTitleAlt: "force push",
     siteHeadline: "Musings and how-to's",
-    siteURL: "https://forcepush.tech",
+    siteUrl: "https://forcepush.tech",
     siteDescription:
       "Musings and how-to's by Johanan Idicula, a software developer",
     siteLanguage: "en",
