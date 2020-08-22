@@ -109,8 +109,8 @@ const Footer = () => {
             </Styled.a>{" "}
             on{" "}
             <Styled.a
-              aria-label="Github Repository"
-              href="https://github.com/jidicula/jidicula.github.io"
+              aria-label="GitHub Repository"
+              href="https://github.com/jidicula/forcepush"
             >
               <FaGithub />
             </Styled.a>
