@@ -52,13 +52,11 @@ const Footer = () => {
           <div class="row">
             <Styled.a
               aria-label="License"
-              href="https://github.com/jidicula/jidicula.github.io/blob/master/LICENSE"
+              href="https://github.com/jidicula/forcepush/blob/master/LICENSE"
             >
               <FaCopyright /> {new Date().getFullYear()} {author}{" "}
             </Styled.a>
           </div>
-
-          <div class="row">&nbsp; </div>
           <div class="row">
             <div class="column">
               <Styled.a
