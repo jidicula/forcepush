@@ -76,29 +76,24 @@ const Footer = () => {
               aria-label="GitHub Profile"
               href="https://github.com/jidicula"
             >
-              <FaGithubSquare /> jidicula
-            </Styled.a>
-          </div>
-          <div class="row">
+              <FaGithubSquare />
+            </Styled.a>{" "}
             <Styled.a
               aria-label="LinkedIn Profile"
               href="https://www.linkedin.com/in/jidicula"
             >
-              <FaLinkedin /> jidicula
-            </Styled.a>
-          </div>
-          <div class="row">
+              <FaLinkedin />
+            </Styled.a>{" "}
             <Styled.a
               aria-label="Medium Profile"
               href="https://medium.com/@jidicula"
             >
-              <FaMedium /> jidicula
+              <FaMedium />
             </Styled.a>
           </div>
         </div>
         <div class="column">
           <div class="row">Musings and how-to's </div>
-          <div class="row">&nbsp; </div>
           <div class="row">
             <FaLaptopCode /> with <FaHeart /> and{" "}
             <Styled.a
