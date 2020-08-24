@@ -14,6 +14,7 @@ import {
   FaPalette,
   FaGithub,
   FaMedium,
+  FaStackOverflow,
 } from "react-icons/fa"
 
 const Footer = () => {
@@ -87,6 +88,13 @@ const Footer = () => {
               href="https://medium.com/@jidicula"
             >
               <FaMedium />
+            </Styled.a>{" "}
+            <Styled.a
+              aria-label="Stack Overflow"
+              href="https://stackoverflow.com/users/6310633/jidiculous"
+            >
+              <FaStackOverflow />
+            </Styled.a>{" "}
             </Styled.a>
           </div>
         </div>
