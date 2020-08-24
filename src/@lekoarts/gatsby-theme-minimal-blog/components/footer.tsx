@@ -15,6 +15,7 @@ import {
   FaGithub,
   FaMedium,
   FaStackOverflow,
+  FaHackerNews,
 } from "react-icons/fa"
 
 const Footer = () => {
@@ -95,6 +96,11 @@ const Footer = () => {
             >
               <FaStackOverflow />
             </Styled.a>{" "}
+            <Styled.a
+              aria-label="Hacker News"
+              href="https://news.ycombinator.com/user?id=jidiculous"
+            >
+              <FaHackerNews />
             </Styled.a>
           </div>
         </div>
