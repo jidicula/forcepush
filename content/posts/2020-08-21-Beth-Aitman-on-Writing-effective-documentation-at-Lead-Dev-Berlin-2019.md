@@ -1,7 +1,7 @@
 ---
 title: Beth Aitman on writing effective documentation at LeadDev Berlin 2019
 date: 2020-08-21 15:43:56 -0400
-excerpt:
+excerpt: My favourite takeaway from the talk? If you're documenting around a problem, you should probably just fix the problem.
 tags:
  - documentation
  - videos
