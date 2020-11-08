@@ -6,6 +6,7 @@ tags:
  - documentation
  - videos
  - software engineering
+ - maintainability
 ---
 
 I recently re-read Joel Chippindale's [fantastic post about telling stories through your commits](https://blog.mocoso.co.uk/talks/2015/01/12/telling-stories-through-your-commits/) and I noticed that it was actually part of a talk he gave at a LeadDev conference in 2016. This led me to LeadDev's YouTube channel, where I came across a fantastic 10-minute talk by Beth Aitman at Lead Dev Berlin 2019 about writing effective documentation. From the video description, "Beth Aitman is a technical writer at Google, where she works to improve developer experience for Site Reliability Engineers. She’s interested in the intersection between UX and writing, and is passionate about teaching developers to write good docs."
