@@ -23,7 +23,7 @@ Use [ShellCheck](https://www.shellcheck.net). It checks syntax and semantics. An
 
 ## Best Practices
 
-It's always nice to have a guidebook to reference when it comes to stylistic best practices. Google has done that for [most of the common production languages](https://google.github.io/styleguide/) including [Bash](google-shell-style-guide). The Google Shell Style Guide solidifies some of the ambiguities with Bash to improve the maintainability of Bash scripts.
+It's always nice to have a guidebook to reference when it comes to stylistic best practices. Google has done that for [most of the common production languages](https://google.github.io/styleguide/) including [Bash](https://google.github.io/styleguide/shellguide.html). The Google Shell Style Guide solidifies some of the ambiguities with Bash to improve the maintainability of Bash scripts.
 
 ## Manual Testing
 
@@ -89,7 +89,7 @@ else
 fi
 ```
 
-The `else` clause is executed in this case as intended when no argument is supplied to the script. This is because double-brackets do some basic variable checking first before proceeding. See [here](stack-bash-brackets) for further details. The [GNU Bash Reference manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Conditional-Constructs) also goes into exhaustive detail on this (scroll down to `[[…]]`).
+The `else` clause is executed in this case as intended when no argument is supplied to the script. This is because double-brackets do some basic variable checking first before proceeding. See [here](https://stackoverflow.com/questions/13542832/difference-between-single-and-double-square-brackets-in-bash) for further details. The [GNU Bash Reference manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Conditional-Constructs) also goes into exhaustive detail on this (scroll down to `[[…]]`).
 
 ### Command substitution
 
@@ -202,7 +202,5 @@ Above all, practice with some toy examples in a dummy directory with files you'r
 Best of luck with your Bash scripting!
 
 [shellcheck]: ../assets/shellcheck.png
-[google-shell-style-guide]: https://google.github.io/styleguide/shellguide.html
-[stack-bash-brackets]: https://stackoverflow.com/questions/13542832/difference-between-single-and-double-square-brackets-in-bash
 
 Questions? Comments? Write to me at johanan+blog@forcepush.tech.
