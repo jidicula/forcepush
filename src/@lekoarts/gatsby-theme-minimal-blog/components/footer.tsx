@@ -92,7 +92,7 @@ const Footer = () => {
             </Styled.a>{" "}
             <Styled.a
               aria-label="Stack Overflow"
-              href="https://stackoverflow.com/users/6310633/jidiculous"
+              href="https://stackoverflow.com/users/6310633/jidicula"
             >
               <FaStackOverflow />
             </Styled.a>{" "}
