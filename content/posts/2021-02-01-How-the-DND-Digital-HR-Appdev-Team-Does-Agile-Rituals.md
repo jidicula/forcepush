@@ -52,13 +52,13 @@ The purpose of the Retrospective is to take the pulse of the team. The Scrum Mas
 Since we're a remote team, we use [Miro][miro] to collaborate on a shared whiteboard for our Retrospective.
 
 ## Day 0 of New Sprint: Planning Poker
-### Attending: All Developers, Scrum Master, Product Team (as observers)
+### Attending: All Developers, Scrum Master, Product Team (as observers), Stakeholders (as observers)
 
 This ritual is fairly simple: the tickets prioritized in the pre-planning meeting are presented to the team. The user story and the implementation detail is read to the team, then the team gets 20 seconds to vote on how many (story) points they think it will take. The average voted weight (rounded up) is assigned to the ticket. If there's a wide spread or any outliers in voting, the Scrum Master should allow the team to discuss and either re-vote on the ticket, or reach consensus on a lower weight. Since we're remote, my team uses [Scrumpy][scrumpy] for automating the planning poker voting and timing.
 
 It's important to note that the story points on our team don't convert to any actual time units - they're purely relative measures. For example, a lengthy refactor may be deemed to take 10 times longer than a simple label change.
 
-Additionally, the Product Team doesn't actually participate in this session - they're only attending as observers to watch how the team weighs different types of tasks.
+Additionally, the Product Team and Stakeholders don't actually participate in voting - they attend as observers to watch how the team weighs different types of tasks.
 
 Once estimation is finished, the team takes a break while the Scrum Master calculates the total weights and compares it with the team's known velocity. Tickets may be removed from the sprint at their discretion if the total weight is greater than the team's known velocity. In my experience, it's been a safe bet to slightly (~90%) underestimate a team's known velocity to account for any unexpected bugs that need squashing.
 
