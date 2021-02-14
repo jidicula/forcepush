@@ -8,6 +8,12 @@ tags:
  - maintainability
 ---
 
+#### 2021 Update
+
+*I'm now using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). You should too. Read on to find out why.*
+
+---
+
 My team works on tools to streamline civilian HR processes in the Canadian 
 Department of National Defence. Every week, one team member hosts a learning 
 session to teach everyone about some topic related to our work. This week, 
