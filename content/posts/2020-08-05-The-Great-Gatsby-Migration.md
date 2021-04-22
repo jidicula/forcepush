@@ -24,7 +24,7 @@ It's the biggest change that's visible – this site's beautiful theme is forked
 
 ## The problem
 
-One killer feature that I wanted in my personal website was the ability to serve the most recent copy of [my resume](/jidicula-resume/jidicula-resume.pdf). I keep my resume publicly available in a [GitHub repository](https://github.com/jidicula/jidicula-resume). Any time I make a change, I rebuild the PDF, commit the changes, and push them to this remote. If the PDF is served on my website, it becomes effortless to share my most recent resume with anyone, and I even link to the online copy within the resume itself to ensure that any reader of a PDF or printout can easily find the most revent version at any time.
+One killer feature that I wanted in my personal website was the ability to serve the most recent copy of [my resume](/jidicula-resume/jidicula-resume.pdf). I keep my resume publicly available in a [GitHub repository](https://github.com/jidicula/jidicula-resume). Any time I make a change, I rebuild the PDF, commit the changes, and push them to this remote. If the PDF is served on my website, it becomes effortless to share my most recent resume with anyone, and I even link to the online copy within the resume itself to ensure that any reader of a PDF or printout can easily find the most recent version at any time.
 
 ## The previous solution
 
