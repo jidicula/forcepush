@@ -39,7 +39,7 @@ and I could easily copy and paste this output into our meeting chat a few minute
 
 A few weeks ago, I began learning Go. I like it, *a lot*. Go seems very C-like, without the manual memory management footguns and a small syntax simpler than even C's already-sparse lexicon. As part of my journey, I thought it would be an interesting exercise to rewrite my little standup randomizer program in Go, with the following additional requirements:
 
-* generalized: no hardcoding of team members, preferably reading in a [TOML](./2021-05-01-Why-TOML.md) file defining the team roster
+* generalized: no hardcoding of team members, preferably reading in a [TOML](./why-toml) file defining the team roster
 * covered by tests
 * publishable to pkg.go.dev
 * installable to PATH with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
