@@ -42,7 +42,7 @@ A few weeks ago, I began learning Go. I like it, *a lot*. Go seems very C-like, 
 * generalized: no hardcoding of team members, preferably reading in a [TOML](./2021-05-01-Why-TOML.md) file defining the team roster
 * covered by tests
 * publishable to pkg.go.dev
-* installable to PATH with `go get` (I discovered `go install` later)
+* installable to PATH with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
 * pure CI/CD PR checks and autoreleases
 
 This was the final result: https://github.com/jidicula/random-standup
@@ -118,7 +118,7 @@ foo-bar
     ├── __init__.py
     └── test_foo_bar.py
 ```
-(This pretty filetree output is courtesy of the [`tree` tool](http://mama.indstate.edu/users/ice/tree/), which is also available via Homebrew.)
+(This pretty filetree output is courtesy of [`tree`](http://mama.indstate.edu/users/ice/tree/), which is also available via Homebrew.)
 
 This seemed to be a format more geared towards a Python package intended to be a library imported by other projects - probably overkill for a CLI tool. After some digging, I instead followed the [structure recommended by the Python Packaging Authority](https://packaging.python.org/tutorials/packaging-projects/#creating-the-package-files):
 
