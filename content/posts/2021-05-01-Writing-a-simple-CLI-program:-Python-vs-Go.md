@@ -1,7 +1,7 @@
 ---
 title: "Writing a Simple CLI Program: Python vs Go"
 date: 2021-05-01 14:00:00 -0400
-excerpt:
+excerpt: "Once again, Python was not as simple as Go."
 tags:
  - Python
  - Go
