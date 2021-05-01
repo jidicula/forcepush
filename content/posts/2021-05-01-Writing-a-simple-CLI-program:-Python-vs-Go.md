@@ -1,12 +1,12 @@
 ---
 title: "Writing a Simple CLI Program: Python vs Go"
-date: 2021-05-01 20:58:03 -0400
+date: 2021-05-01 14:00:00 -0400
 excerpt:
 tags:
- - python
- - go
- - cli
- - ci/cd
+ - Python
+ - Go
+ - CLI
+ - CI/CD
 ---
 
 As I mentioned in a [previous post](/how-the-dnd-digital-hr-app-dev-team-does-agile-rituals), I'm currently the Scrum Master of the DND Digital HR AppDev team. One of my duties is running the daily standup meetings, where each team member gives their update on what they're up to and if they have any impediments. Since we're a distributed team, we have our standups via an audio call. When I first started running standups, I found that when we did popcorn updates, there was always an awkward pause between updates because no one wanted to go next. I quickly decided on having a defined order in standups, but to also randomize the order to keep things varied. This was pretty simple to implement in a hardcoded Python script that uses `random.shuffle()`:
@@ -39,7 +39,7 @@ and I could easily copy and paste this output into our meeting chat a few minute
 
 A few weeks ago, I began learning Go. I like it, *a lot*. Go seems very C-like, without the manual memory management footguns and a small syntax simpler than even C's already-sparse lexicon. As part of my journey, I thought it would be an interesting exercise to rewrite my little standup randomizer program in Go, with the following additional requirements:
 
-* generalized: no hardcoding of team members, preferably reading in a TOML file defining the team roster
+* generalized: no hardcoding of team members, preferably reading in a [TOML](./2021-05-01-Why-TOML.md) file defining the team roster
 * covered by tests
 * publishable to pkg.go.dev
 * installable to PATH with `go get` (I discovered `go install` later)
@@ -99,15 +99,6 @@ Mallory
 # The Re-rewrite: Python Edition
 
 I thought it would be an even more interesting exercise to try writing the same tool in Python too, just to compare the process of writing a CLI tool (and so I'd have a reason to write a blogpost). The Python implementation of this tool can be seen [here](https://github.com/jidicula/random-standup-py). It accepts the same TOML file that the Go implementation accepts, and is invoked in the same way.
-
-# Interlude: Why TOML?
-
-Config files should be readable and editable by both humans and machines. What defines this? A format with a clear specification (for the machines to parse) and easy on the eyes/fingers (for humans to read and modify). There are a few popular options:
-* XML: Basically HTML - tricky to read and tricky to edit by hand. Diffs will be messy.
-* .INI: Several competing specifications, so really not even worth considering.
-* YAML: An improvement over XML in readability, but the whitespace-as-syntax might trip you up. [GitHub Actions](https://docs.github.com/en/actions) uses this for defining workflows, and tools like [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically) and [pre-commit](https://pre-commit.com) read configurations from YAML files.
-* JSON: The de facto format for passing around data in webdev, with a dictionary-like syntax. Hope you like commas and braces.
-* TOML: A happy medium between human and machine readability. Used for specifying Rust project dependencies in `Cargo.toml`, and for [Python project configs in `pyproject.toml`][pep-631].
 
 # The Differences
 
@@ -247,7 +238,7 @@ Dave Cheney wrote an [excellent blogpost about table-driven testing](https://dav
 
 All the unit tests can simply be run with `go test` - no 3rd-party tooling required. There's an even cooler tool built into the language runtime, though: test coverage. Rob Pike wrote about [test coverage tooling in Go](https://blog.golang.org/cover) that's simply brilliant in design and function. The tl;dr is that you can run:
 
-```bash
+```
 $ go test -coverprofile=coverage.out
 PASS
 coverage: 55.8% of statements
@@ -260,7 +251,7 @@ The second command will open a browser window displaying the program's source co
 
 If you run
 
-```bash
+```
 $ go test -covermode=count -coverprofile=count.out
 PASS
 coverage: 55.8% of statements
@@ -272,7 +263,7 @@ you get a heatmap of test coverage, where colour intensity indicates how many ti
 
 (Of course, you can get textual output for coverage as well.)
 
-Python unfortunately doesn't have great test support built-in, which has led to the rise of the 3rd-party (noticing a pattern?) tool [Pytest](https://docs.pytest.org/en/latest/contents.html) as the de facto testing standard. Pytest is quite easy to set up tests for, though. The test discovery rules are specified [here](https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery) but essentially Pytest will run any function with the `test` prefix in any file that matches `test_*.py` or `*_test.py`. In those test functions, `assert` statements are used for defining and checking test cases - if they fail, the entire test fails:
+Python unfortunately doesn't have great test support built-in, which has led to the rise of the 3rd-party (noticing a pattern?) tool [pytest](https://docs.pytest.org/en/latest/contents.html) as the de facto testing standard. pytest is quite easy to set up tests for, though. The test discovery rules are specified [here](https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery) but essentially pytest will run any function with the `test` prefix in any file that matches `test_*.py` or `*_test.py`. In those test functions, `assert` statements are used for defining and checking test cases - if they fail, the entire test fails:
 
 ```python
 def test_standup_cli():
@@ -283,11 +274,87 @@ def test_standup_cli():
     assert "## Subteam-1" in result.output
 ```
 
+This test is invoked by running:
+
+```
+$ pytest
+============================= test session starts ==============================
+platform darwin -- Python 3.8.2, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
+rootdir: /Users/johanan/prog/random-standup-py
+collected 1 item                                                               
+
+tests/test_random_standup.py .                                           [100%]
+
+============================== 1 passed in 0.07s ===============================
+
+```
+
 For the Python implementation of this program, this was the only test I included - it's incomplete and doesn't test the logic thoroughly, but I wasn't interesting in achieving better coverage for a simple exercise. The interesting portion is that I'm doing a black-box test here - I'm capturing the output of the entire program, not testing specific units within it. I didn't attempt this in Go, but it would be interesting to investigate if/how that can be done.
 
 Getting the test coverage isn't as straightforward as it is in Go - although I didn't attempt it for this program, on [other projects](https://github.com/shimming-toolbox/shimming-toolbox) I've used additional 3rd-party services like [Coveralls](https://coveralls.io) that have [3rd-party packages](https://docs.coveralls.io/python) for computing coverage.
 
-## Logic
+## CLI Setup
+
+Go has 2 builtin options for building a CLI interface: `os.Args`, which is a variable in the `os` package that holds a slice of strings representing the CLI arguments to the program, or the `flag` package, which provides some convenience utilities for parsing CLI flags as well as arguments. For example, `flag.Arg(0)` prints the first non-flag argument passed to the program. `flag` also has a `Usage()` function that can be shadowed for a custom help output that's printed to `stdout` when passing the flags `-h` or `--help` (`usage` is defined outside the `main()` function here):
+
+```go
+func main() {
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "%s\n", usage)
+	}
+
+	flag.Parse()
+	if flag.NArg() < 1 {
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	file := flag.Arg(0)
+
+    // rest of main()
+}
+```
+
+Python has a few builtin options for a CLI: `sys.argv`, which is analogous to Go's `os.Args` and is rather low-level in functionality, or `argparse`, which can handle flag and argument parsing. [Click](https://click.palletsprojects.com) is another 3rd-party package that simplifies CLI setup using decorators to the function representing the CLI command:
+
+```python
+@click.command()
+@click.argument("rosterfile")
+def standup(rosterfile):
+    """random-standup is a tool for randomizing the order of team member
+    updates in a standup meeting.
+    """
+    print(date.today())
+    with open(rosterfile, "r") as f:
+        roster = f.read()
+
+    parsed_roster = parse(roster)
+```
+
+The `@click.command()` decorator turns the `standup()` function into a CLI command, and the `@click.argument("rosterfile")` gives a name to the required input arguments for the command that's injected into the help message. The help message is built from the function's docstring, and can be invoked using the `-h` or `--help` flags:
+
+```
+$ standup --help
+Usage: standup [OPTIONS] ROSTERFILE
+
+  random-standup is a tool for randomizing the order of team member updates
+  in a standup meeting.
+
+Options:
+  --help  Show this message and exit.
+```
+
+If further options were added using the `@click.option()` decorator, those would also appear in the `Options:` list in the help message.
+
+Click also provides a nice interface for CLI black-box testing, as we saw earlier in Testing.
+
+# Summary
+
+Overall, I've been very impressed with Go's offerings for building a simple CLI tool. I've structured this piece to showcase how its builtin options are as good or better than Python's, where you often have to reach for many 3rd-party packages to simplify structure or get basic functionality. Go also clearly excels in tooling: its core support for testing, dependency management, and cross-compilation is miles ahead of anything that Python has.
+
+The main benefit of having quality functionality built into the language is being able to reduce the dependency surface for a simple program, which greatly simplifies maintainability. For my Go program, I only have one 3rd-party dependency for parsing TOML (`go-toml`), which itself only depends on `go-spew` for pretty-printing its tree-based data structures. The dependency graph for the Python implementation is far more complex, even though it has only 3 core (there are more for formatting and linting) 3rd-party dependencies: Click, pytest, and TOML kit.
+
+The biggest downside I see for using Go for writing a simple CLI program are its rather imperative semantics - it's still faster for me to go from thought to code in Python, as evidenced by my first script for shuffling a list. However, as program size, complexity, or performance needs increases, or if you want to even a few quality-of-life improvements like testing or multiplatform support, I see Go pulling far ahead of Python.
 
 [pep-631]: https://www.python.org/dev/peps/pep-0631/
 [random-standup-pkg]: https://pkg.go.dev/github.com/jidicula/random-standup
