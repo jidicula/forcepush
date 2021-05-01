@@ -39,11 +39,11 @@ and I could easily copy and paste this output into our meeting chat a few minute
 
 A few weeks ago, I began learning Go. I like it, *a lot*. Go seems very C-like, without the manual memory management footguns and a small syntax simpler than even C's already-sparse lexicon. As part of my journey, I thought it would be an interesting exercise to rewrite my little standup randomizer program in Go, with the following additional requirements:
 
-* generalized: no hardcoding of team members, preferably reading in a [TOML](./why-toml) file defining the team roster
-* covered by tests
-* publishable to pkg.go.dev
-* installable to PATH with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
-* pure CI/CD PR checks and autoreleases
+* [generalized](https://github.com/jidicula/random-standup/blob/50789159f04985ee063f7fa92fc02cf7a83bb23f/random-standup.go#L83): no hardcoding of team members, preferably reading in a [TOML](./why-toml) file defining the team roster
+* covered by [tests](https://github.com/jidicula/random-standup/blob/50789159f04985ee063f7fa92fc02cf7a83bb23f/random-standup_test.go)
+* publishable to [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup)
+* [installable to PATH](https://github.com/jidicula/random-standup/tree/main#usage) with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
+* pure CI/CD [PR checks](https://github.com/jidicula/random-standup/blob/main/.github/workflows/build.yml) and [autoreleases](https://github.com/jidicula/random-standup/blob/main/.github/workflows/release-draft.yml)
 
 This was the final result: https://github.com/jidicula/random-standup
 
