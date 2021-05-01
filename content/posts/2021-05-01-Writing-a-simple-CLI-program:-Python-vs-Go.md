@@ -45,7 +45,7 @@ A few weeks ago, I began learning Go. I like it, *a lot*. Go seems very C-like, 
 * [installable to PATH](https://github.com/jidicula/random-standup/tree/main#usage) with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
 * pure CI/CD [PR checks](https://github.com/jidicula/random-standup/blob/main/.github/workflows/build.yml) and [autoreleases](https://github.com/jidicula/random-standup/blob/main/.github/workflows/release-draft.yml)
 
-This was the final result: https://github.com/jidicula/random-standup
+This was the final result: https://github.com/jidicula/random-standup.
 
 It uses a team roster TOML that looks like this:
 
@@ -270,7 +270,7 @@ you get a heatmap of test coverage, where colour intensity indicates how many ti
 
 (Of course, you can get textual output for coverage as well.)
 
-Python unfortunately doesn't have great test support built-in, which has led to the rise of the 3rd-party (noticing a pattern?) tool [pytest](https://docs.pytest.org/en/latest/contents.html) as the de facto testing standard. pytest is quite easy to set up tests for, though. The test discovery rules are specified [here](https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery) but essentially pytest will run any function with the `test` prefix in any file that matches `test_*.py` or `*_test.py`. In those test functions, `assert` statements are used for defining and checking test cases - if they fail, the entire test fails:
+Python unfortunately doesn't have great test support built-in (it has `unittest`, but it's a bit cumbersome), which has led to the rise of the 3rd-party (noticing a pattern?) tool [pytest](https://docs.pytest.org/en/latest/contents.html) as the de facto testing standard. pytest is quite easy to set up tests for, though. The test discovery rules are specified [here](https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery) but essentially pytest will run any function with the `test` prefix in any file that matches `test_*.py` or `*_test.py`. In those test functions, `assert` statements are used for defining and checking test cases - if they fail, the entire test fails:
 
 ```python
 def test_standup_cli():
