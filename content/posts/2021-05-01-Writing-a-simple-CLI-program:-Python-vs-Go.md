@@ -363,6 +363,8 @@ The main benefit of having quality functionality built into the language is bein
 
 The biggest downside I see for using Go for writing a simple CLI program are its rather imperative semantics - it's still faster for me to go from thought to code in Python, as evidenced by my first script for shuffling a list. However, as program size, complexity, or performance needs increases, or if you want to even a few quality-of-life improvements like testing or multiplatform support, I see Go pulling far ahead of Python.
 
+If you have any questions or comments, email me at johanan+blog@forcepush.tech or post a comment [here](https://dev.to/jidicula/writing-a-simple-cli-program-python-vs-go-59kf).
+
 [pep-631]: https://www.python.org/dev/peps/pep-0631/
 [random-standup-pkg]: https://pkg.go.dev/github.com/jidicula/random-standup
 [poetry]: https://python-poetry.org
