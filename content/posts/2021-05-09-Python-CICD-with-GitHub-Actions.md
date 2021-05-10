@@ -1,5 +1,5 @@
 ---
-title: Python CI/CD with GitHub Actions
+title: Python Package CI/CD with GitHub Actions
 date: 2021-05-09 12:06:23 -0400
 excerpt:
 tags:
