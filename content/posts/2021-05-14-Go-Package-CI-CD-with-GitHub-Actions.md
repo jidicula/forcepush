@@ -273,3 +273,5 @@ So overall, working on this project would involve:
 11. Check [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup) for the updated package version.
 
 If you have any questions or comments, email me at johanan+blog@forcepush.tech, find me on Twitter [@jidiculous](http://twitter.com/jidiculous), or post a comment [here](https://dev.to/jidicula/go-package-ci-cd-with-github-actions-350o).
+
+Did you find this post useful? Buy me a beverage or sponsor me [here](https://github.com/sponsors/jidicula)!

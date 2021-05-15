@@ -365,6 +365,8 @@ The biggest downside I see for using Go for writing a simple CLI program are its
 
 If you have any questions or comments, email me at johanan+blog@forcepush.tech or post a comment [here](https://dev.to/jidicula/writing-a-simple-cli-program-python-vs-go-59kf).
 
+Did you find this post useful? Buy me a beverage or sponsor me [here](https://github.com/sponsors/jidicula)!
+
 [pep-631]: https://www.python.org/dev/peps/pep-0631/
 [random-standup-pkg]: https://pkg.go.dev/github.com/jidicula/random-standup
 [poetry]: https://python-poetry.org

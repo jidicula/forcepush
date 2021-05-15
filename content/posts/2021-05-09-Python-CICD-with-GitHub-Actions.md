@@ -294,3 +294,6 @@ So overall, working on this project would involve:
 11. Check [PyPI](https://pypi.org/project/random-standup/) for the updated package version.
 
 If you have any questions or comments, email me at johanan+blog@forcepush.tech or post a comment [here](https://dev.to/jidicula/python-ci-cd-with-github-actions-2e26).
+
+Did you find this post useful? Buy me a beverage or sponsor me [here](https://github.com/sponsors/jidicula)!
+
