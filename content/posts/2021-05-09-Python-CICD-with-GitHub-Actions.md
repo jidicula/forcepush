@@ -236,7 +236,7 @@ The next step is to create some release notes. I keep a release template in the 
 
 That gnarly gitlog command is checking all commits since the last tag to HEAD. For each commit, it appends the commit hash, the commit message subject, the author name, and the author email to the release template.
 
-Finally, we use a [3rd-party release creation Action](our ) for creating a release draft with the release notes and artifacts we just created:
+Finally, we use a [3rd-party release creation Action](https://github.com/softprops/action-gh-release) for creating a release draft with the release notes and artifacts we just created:
 
 ```yaml
       - name: Create Release Draft
@@ -249,7 +249,6 @@ Finally, we use a [3rd-party release creation Action](our ) for creating a relea
             dist/random-standup-${{env.PROJECT_VERSION}}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: jidicula/random-standup
 ```
 
 This creates a draft visible at https://github.com/jidicula/random-standup-py/releases. I modify the release announcements as needed, and publish the release.
