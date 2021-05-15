@@ -272,4 +272,4 @@ So overall, working on this project would involve:
 10. Wait for the [Publish](https://github.com/jidicula/random-standup/actions/workflows/publish.yml) run to finish.
 11. Check [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup) for the updated package version.
 
-If you have any questions or comments, email me at johanan+blog@forcepush.tech, find me on Twitter [@jidiculous](http://twitter.com/jidiculous), or post a comment [here]().
+If you have any questions or comments, email me at johanan+blog@forcepush.tech, find me on Twitter [@jidiculous](http://twitter.com/jidiculous), or post a comment [here](https://dev.to/jidicula/go-package-ci-cd-with-github-actions-350o).
