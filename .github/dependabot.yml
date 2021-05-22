@@ -9,6 +9,6 @@ updates:
     time: "06:00"
     timezone: "America/Toronto"
   reviewers: ["jidicula"]
-  open-pull-requests-limit: 99
+  open-pull-requests-limit: 10
   commit-message:
     prefix: "build: "
