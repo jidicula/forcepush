@@ -28,7 +28,7 @@
         "gatsby-plugin-google-analytics": "^2.11.0",
         "gatsby-plugin-manifest": "^2.4.21",
         "gatsby-plugin-mdx": "^1.2.29",
-        "gatsby-plugin-netlify": "^2.3.7",
+        "gatsby-plugin-netlify": "^2.11.1",
         "gatsby-plugin-netlify-cms": "^4.10.1",
         "gatsby-plugin-offline": "^3.2.21",
         "gatsby-plugin-sharp": "^2.6.23",
