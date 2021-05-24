@@ -41,7 +41,7 @@
         "mdx-deck": "^4.1.1",
         "netlify-cms-app": "^2.15.11",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1",
+        "react-dom": "^16.14.0",
         "react-icons": "^4.2.0",
         "sharp": "^0.28.2",
         "theme-ui": "^0.3.1",
