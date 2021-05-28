@@ -1,14 +1,15 @@
 ---
-title: How the DND Digital HR AppDev Team Does Agile Rituals
+title: How the DND Digital HR AppDev Team Does Scrum Rituals
 date: 2021-02-01 22:10:09 -0500
-excerpt: "I thought I'd write about how I coordinated our Agile rituals."
+excerpt: "I thought I'd write about how I coordinated our Scrum rituals."
 tags:
  - Agile
+ - Scrum
  - DND
  - software engineering
 ---
 
-My team in DND Civilian HR rotates the Scrum Master responsibilities among team members interested in taking on the role. I finished a 2-sprint rotation for this a couple of weeks ago, so I thought I'd write about how I coordinated our Agile rituals.
+My team in DND Civilian HR rotates the Scrum Master responsibilities among team members interested in taking on the role. I finished a 2-sprint rotation for this a couple of weeks ago, so I thought I'd write about how I coordinated our Scrum rituals.
 
 A few notes before I begin:
 * The "extra developer" should be a team member whose knowledge complements that of the Scrum Master - for example, if the Scrum Master is more familiarized with backend development, the extra dev should have more expertise in frontend development.
@@ -69,7 +70,7 @@ This standup meeting is a quick (15 minutes maximum) litany of what was done on 
 
 ## Wrap-up
 
-So that's a quick rundown of how my team does our Agile rituals.
+So that's a quick rundown of how my team does our Scrum rituals.
 
 Questions about why certain rituals are done a certain way? Suggestions on better tools to use? Write to me at johanan+blog@forcepush.tech.
 
