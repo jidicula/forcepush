@@ -21,7 +21,7 @@
         "@pauliescanlon/gatsby-mdx-embed": "^0.0.29",
         "@theme-ui/components": "^0.9.1",
         "@theme-ui/presets": "^0.9.1",
-        "caniuse-lite": "^1.0.30001230",
+        "caniuse-lite": "^1.0.30001234",
         "emotion": "^11.0.0",
         "gatsby": "^2.32.13",
         "gatsby-cli": "^3.6.0",
