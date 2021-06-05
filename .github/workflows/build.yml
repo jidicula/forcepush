@@ -39,6 +39,14 @@ jobs:
       - name: Install dependencies
         if: steps.cache-deps.cache-hit != 'true'
         run: npm install
+      - name: Cache build
+        id: cache-build
+        uses: actions/cache@v2.1.5
+        with:
+          path: ${{github.workspace}}/public
+          key: ${{matrix.os}}-${{matrix.node-version}}-${{ hashFiles('**/package-lock.json')}}-${{ hashFiles('content/**')}}
+          restore-keys: ${{matrix.os}}-${{matrix.node-version}}-
       - name: Build site
+        if: steps.cache-build.cache-hit != 'true'
         run: npm run build
     
