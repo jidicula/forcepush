@@ -61,6 +61,6 @@
         "eslint-plugin-simple-import-sort": "^7.0.0",
         "eslint-plugin-testing-library": "^4.6.0",
         "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.22",
-        "prettier": "^2.3.0"
+        "prettier": "^2.3.1"
     }
 }
