@@ -19,7 +19,7 @@
         "@emotion/styled": "^10.0.27",
         "@lekoarts/gatsby-theme-minimal-blog": "^2.4.0",
         "@pauliescanlon/gatsby-mdx-embed": "^0.0.29",
-        "@theme-ui/components": "^0.11.1",
+        "@theme-ui/components": "^0.11.2",
         "@theme-ui/presets": "^0.10.0",
         "caniuse-lite": "^1.0.30001256",
         "emotion": "^11.0.0",
