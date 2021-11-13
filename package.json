@@ -60,7 +60,7 @@
         "eslint-plugin-react-hooks": "^4.2.0",
         "eslint-plugin-simple-import-sort": "^7.0.0",
         "eslint-plugin-testing-library": "^5.0.0",
-        "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25",
+        "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
         "prettier": "^2.4.1"
     }
 }
