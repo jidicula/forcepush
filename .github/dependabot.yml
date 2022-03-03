@@ -1,14 +1,14 @@
 version: 2
 updates:
   # Enable version updates for npm
-- package-ecosystem: "npm"
-  directory: "/"
-  schedule:
-    interval: "weekly"
-    day: "saturday"
-    time: "06:00"
-    timezone: "America/Toronto"
-  reviewers: ["jidicula"]
-  open-pull-requests-limit: 10
-  commit-message:
-    prefix: "build: "
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "06:00"
+      timezone: "America/Toronto"
+    reviewers: ["jidicula"]
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "build: "

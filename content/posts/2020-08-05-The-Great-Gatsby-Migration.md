@@ -3,11 +3,11 @@ title: The Great Gatsby Migration
 date: 2020-08-06 18:44 -0400
 excerpt: If you've read my blog before, you might have noticed something looks a bit different...
 tags:
- - Gatsby
- - Netlify
+  - Gatsby
+  - Netlify
 ---
 
-If you've read my blog before, you might have noticed something looks a bit different now... the fonts are slicker, site loading is faster, and there's a dark-mode/light-mode toggle! That's right, I've switched from using a Jekyll static site generator to [Gatsby](https://www.gatsbyjs.org)! Why make this change? A lot has already been written about the benefits of using Gatsby over Jekyll (see [here](https://www.gatsbyjs.org/features/jamstack/gatsby-vs-jekyll-vs-hugo)), so I won't go into that here. What this post *will* deal with are the non-obvious details of this transition, like mirroring my resume PDF from GitHub, setting up Font Awesome, and optimizing my Netlify build.
+If you've read my blog before, you might have noticed something looks a bit different now... the fonts are slicker, site loading is faster, and there's a dark-mode/light-mode toggle! That's right, I've switched from using a Jekyll static site generator to [Gatsby](https://www.gatsbyjs.org)! Why make this change? A lot has already been written about the benefits of using Gatsby over Jekyll (see [here](https://www.gatsbyjs.org/features/jamstack/gatsby-vs-jekyll-vs-hugo)), so I won't go into that here. What this post _will_ deal with are the non-obvious details of this transition, like mirroring my resume PDF from GitHub, setting up Font Awesome, and optimizing my Netlify build.
 
 # Deployment: GitHub Pages vs Netlify
 
@@ -18,7 +18,6 @@ Now, my site is brought to you by [Netlify](https://www.netlify.com). Netlify is
 # Theme
 
 It's the biggest change that's visible – this site's beautiful theme is forked from Kyle Rubenok's [Nerd Ramblings](https://github.com/krubenok/nerd-ramblings), which in turn is forked from the gatsby-theme-minimal-blog by [@LekoArts](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog). I adapted the colours and fonts from Kyle's theme and added a custom footer with some crisp Font Awesome logos. I couldn't have set this up without either of their efforts, so I thank them both for their contributions to prior work. Kyle's been especially influential in introducing me to great products like Gatsby, [Notion](http://notion.so/) (I'll describe my setup in a future post), and Netlify.
-
 
 # Personal resume as a dependency
 
@@ -56,7 +55,7 @@ I ended up opting for the resume-repo-as-a-dependency route using the [gatsby-so
 
 This adds my resume to [https://forcepush.tech/jidicula-resume/jidicula-resume.pdf](https://forcepush.tech/jidicula-resume/jidicula-resume.pdf). The cherry on top was a [Netlify feature allowing redirects from a custom slug](https://docs.netlify.com/configure-builds/file-based-configuration/#redirects) so my resume is also available at [http://forcepush.tech/resume](http://forcepush.tech/resume) (which redirects to the first link).
 
-Now the issue of forcing a "reinstall" of that dependency each time I pushed to my resume repo. Enter Netlify's [build hooks](https://docs.netlify.com/configure-builds/build-hooks/). By running 
+Now the issue of forcing a "reinstall" of that dependency each time I pushed to my resume repo. Enter Netlify's [build hooks](https://docs.netlify.com/configure-builds/build-hooks/). By running
 
 ```bash
 curl -X POST -d '{}' https://api.netlify.com/build_hooks/<site-hash>
@@ -72,42 +71,42 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     steps:
-    - name: curl
-      uses: wei/curl@v1
-      env:
-        NETLIFY_HASH: ${{ secrets.NETLIFY_HASH }}
-      with:
-        args: -X POST -d {} "https://api.netlify.com/build_hooks/$NETLIFY_HASH"
+      - name: curl
+        uses: wei/curl@v1
+        env:
+          NETLIFY_HASH: ${{ secrets.NETLIFY_HASH }}
+        with:
+          args: -X POST -d {} "https://api.netlify.com/build_hooks/$NETLIFY_HASH"
 ```
 
 But when I tested this out, the Netlify build didn't correctly pull in the repo, with some worrying error messages:
 
 ```
-9:57:40 PM: 
+9:57:40 PM:
 9:57:40 PM:   Error: fatal: No remote configured to list refs from.
-9:57:40 PM:   
+9:57:40 PM:
 9:57:40 PM:   - promise.js:90 toError
 9:57:40 PM:     [repo]/[simple-git]/promise.js:90:14
-9:57:40 PM:   
-9:57:40 PM:   - promise.js:61 
+9:57:40 PM:
+9:57:40 PM:   - promise.js:61
 9:57:40 PM:     [repo]/[simple-git]/promise.js:61:36
-9:57:40 PM:   
+9:57:40 PM:
 9:57:40 PM:   - git.js:725 Git.<anonymous>
 9:57:40 PM:     [repo]/[simple-git]/src/git.js:725:18
-9:57:40 PM:   
+9:57:40 PM:
 9:57:40 PM:   - git.js:1475 Function.Git.fail
 9:57:40 PM:     [repo]/[simple-git]/src/git.js:1475:18
-9:57:40 PM:   
+9:57:40 PM:
 9:57:40 PM:   - git.js:1433 fail
 9:57:40 PM:     [repo]/[simple-git]/src/git.js:1433:20
-9:57:40 PM:   
-9:57:40 PM:   - git.js:1442 
+9:57:40 PM:
+9:57:40 PM:   - git.js:1442
 9:57:40 PM:     [repo]/[simple-git]/src/git.js:1442:16
-9:57:40 PM:   
+9:57:40 PM:
 9:57:40 PM:   - task_queues.js:97 processTicksAndRejections
 9:57:40 PM:     internal/process/task_queues.js:97:5
-9:57:40 PM:   
-9:57:40 PM: 
+9:57:40 PM:
+9:57:40 PM:
 ```
 
 The cause of this was one of the key features of Gatsby and Netlify: caches of previous builds. The `public/` directory and the `.cache` remains, with only the changed components updating. The Git plugin essentially tried to clone the same repo into the same location, where a repo of that name already existed, so naturally it would fail. The obvious workaround within the constraints of Git would be to do some kind of `git pull`, but that seemed a bit in the weeds to do from inside a React app. I'm sure there are Node packages to assist with this that I could hook into my site's `npm build` directive, but I didn't want to go down another rabbit hole. Instead, I opted for the crudely (more on this below) simple solution on Netlify: change the build command from `npm run build` to `npm run clean`. So, on each build, the previous build and cache gets wiped out before the new build begins. The `git clone` portion of the plugin works fine and my hosted resume would get updated. Problem solved!
@@ -118,7 +117,7 @@ The cause of this was one of the key features of Gatsby and Netlify: caches of p
 
 ```js
 // ...
-import { IconContext } from "react-icons";
+import { IconContext } from "react-icons"
 import {
   FaCopyright,
   FaPaperPlane,
@@ -128,10 +127,10 @@ import {
   FaHeart,
   FaPalette,
   FaGithub,
-} from "react-icons/fa";
+} from "react-icons/fa"
 
 const Footer = () => {
-  const { author, siteTitle } = useSiteMetadata();
+  const { author, siteTitle } = useSiteMetadata()
 
   return (
     <footer>
@@ -139,22 +138,22 @@ const Footer = () => {
       <IconContext.Provider
         value={{ style: { verticalAlign: "middle" }, size: "1.2em" }}
       >
-	  // ...
-            <Styled.a
-              aria-label="GitHub Profile"
-              href="https://github.com/jidicula"
-            >
-              <FaGithubSquare /> jidicula
-            </Styled.a>
-			// ...
+        // ...
+        <Styled.a
+          aria-label="GitHub Profile"
+          href="https://github.com/jidicula"
+        >
+          <FaGithubSquare /> jidicula
+        </Styled.a>
+        // ...
       </IconContext.Provider>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
-
+export default Footer
 ```
+
 Mission accomplished (scroll to the bottom to see the result)!
 
 # Optimizing the Netlify Build

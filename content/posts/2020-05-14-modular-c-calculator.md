@@ -13,6 +13,7 @@ tags:
 Today I'm going to demonstrate the concept of modular programming in C. Together, we'll build a simple integer arithmetic calculator. By the end of this, you'll have an idea of how to do modular programming in C with the use of header files, library files, include guards, and Makefile.
 
 Our program will function like this:
+
 ```bash
 $ ./calculator 1 + 1
 2
@@ -41,14 +42,15 @@ In the context of our example, our modules are going to be C files. We'll use fe
 # [Step 1: Organization](#organization)
 
 The first step of programming is to plan out its structure. We'll build our calculator with the following files:
-  * a `calc.c` file: this will handle commandline arguments that we pass to the executable.
-  * an `operations.c` file: this contains functions implementing the operations our calculator can do.
-  * an `operations.h` file: this contains the function prototypes of `operations.c` and will be included from `calc.c`.
-  
+
+- a `calc.c` file: this will handle commandline arguments that we pass to the executable.
+- an `operations.c` file: this contains functions implementing the operations our calculator can do.
+- an `operations.h` file: this contains the function prototypes of `operations.c` and will be included from `calc.c`.
+
 Let's create these files in our repo (visible at commit [d59597e](https://github.com/jidicula/c-calculator/commit/d59597e5acc0eb1bdfe58fc008e79375da64ce2f?diff=unified)):
 
 ![screenshot][step-1]
-*If you examine `calc.c` you'll notice I already put a skeleton `main()` in the file. All files also have the requisite license boilerplate.*
+_If you examine `calc.c` you'll notice I already put a skeleton `main()` in the file. All files also have the requisite license boilerplate._
 
 Now let's fill in some of the `#include` statements for our `.c` files:
 
@@ -84,6 +86,7 @@ The need for an include guard is because of how the preprocessor portion of GCC 
 $ gcc -c calc.c operations.c
 $ gcc -o calculator calc.o operations.o
 ```
+
 You can read more about include guards [here][include-guards].
 
 At this point, we can make a new commit (see [77bf9b6](https://github.com/jidicula/c-calculator/commit/77bf9b6423ec84e28fa5d4c6320a13eb40542c87)).
@@ -95,6 +98,7 @@ At this point, we can make a new commit (see [77bf9b6](https://github.com/jidicu
 You might have noticed that the GCC commands above are a bit verbose to run each time. Let's automate that with a Makefile. I won't go into too much detail about what's going on here because that deserves its own post, but the tl;dr is that Make looks at a (carefully crafted) Makefile to determine the **minimum** compilation commands required for the executable to reflect changes in source code. I highly recommend looking at the O'Reilly book on Make, available for free [here][make-book].
 
 Here's the Makefile:
+
 ```makefile
 CC = /usr/bin/gcc
 CFLAGS = -Wextra -Wpedantic
@@ -139,6 +143,7 @@ operations.c:24:24: warning: ISO C requires a translation unit to contain at
 We're getting some warnings because I've chosen to include the GCC flags `-Wextra` and `-Wpedantic`. Generally it's good practice to compile with these flags because they'll warn you when you try to compile things like a source file with no declarations, as shown above.
 
 I can also run `make clean` to run the `clean` rule defined in `Makefile`:
+
 ```bash
 $ make clean
 rm -f calculator calc.o operations.o
@@ -169,7 +174,7 @@ echo "test: ./calculator 6 / 2"
 ./calculator 6 / 2
 ```
 
-*note that the \* symbol has to be single-quoted to prevent shell expansion*
+_note that the \* symbol has to be single-quoted to prevent shell expansion_
 
 You can browse the state of the repository at this step [here][step-3].
 

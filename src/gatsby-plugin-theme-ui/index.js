@@ -1,23 +1,23 @@
-import { tailwind } from "@theme-ui/presets";
-import { merge } from "theme-ui";
+import { tailwind } from "@theme-ui/presets"
+import { merge } from "theme-ui"
 
 // One Light Colours
-const lightBackground = "#ffffff";
-const lightPurple = "#a625a4";
-const lightBlue = "#4078f2";
+const lightBackground = "#ffffff"
+const lightPurple = "#a625a4"
+const lightBlue = "#4078f2"
 /* const lightGreen = "#51a14f" */
 /* const lightBrown = "#986802" */
-const lightGrey = "#383a42";
-const lightSecondaryGrey = "#a0a1a8";
+const lightGrey = "#383a42"
+const lightSecondaryGrey = "#a0a1a8"
 
 // One Dark Colours
-const darkBackground = "#000000";
-const darkPurple = "#c678dd";
-const darkBlue = "#61afef";
+const darkBackground = "#000000"
+const darkPurple = "#c678dd"
+const darkBlue = "#61afef"
 /* const darkGreen = "#98c379" */
 /* const darkBrown = "#d19a66" */
-const darkGrey = "#abb2bf";
-const darkSecondaryGrey = "#5c6270";
+const darkGrey = "#abb2bf"
+const darkSecondaryGrey = "#5c6270"
 
 const theme = merge(tailwind, {
   useColorSchemeMediaQuery: true,
@@ -45,8 +45,7 @@ const theme = merge(tailwind, {
     },
   },
   fonts: {
-    body:
-      '"Helvetica Neue", -apple-system, BlinkMacSystemFont,"Segoe UI", "Noto Sans", sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
+    body: '"Helvetica Neue", -apple-system, BlinkMacSystemFont,"Segoe UI", "Noto Sans", sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
     monospace: '"Roboto Mono"',
   },
   fontWeights: {
@@ -200,6 +199,6 @@ const theme = merge(tailwind, {
       color: "text",
     },
   },
-});
+})
 
-export default theme;
+export default theme

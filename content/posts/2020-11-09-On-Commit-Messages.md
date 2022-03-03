@@ -3,41 +3,42 @@ title: "Missives to the Future: On Commit Messages and Maintainability"
 date: 2020-11-09 21:44:26 -0500
 excerpt: "We don't write code for the machine - we write it for other developers."
 tags:
- - Git
- - software engineering
- - maintainability
+  - Git
+  - software engineering
+  - maintainability
 ---
 
 #### 2021 Update
 
-*I'm now using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). You should too. Read on to find out why.*
+_I'm now using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). You should too. Read on to find out why._
 
 ---
 
-My team works on tools to streamline civilian HR processes in the Canadian 
-Department of National Defence. Every week, one team member hosts a learning 
-session to teach everyone about some topic related to our work. This week, 
-I'm giving a talk on the importance of Git commit messages, so I thought I'd 
+My team works on tools to streamline civilian HR processes in the Canadian
+Department of National Defence. Every week, one team member hosts a learning
+session to teach everyone about some topic related to our work. This week,
+I'm giving a talk on the importance of Git commit messages, so I thought I'd
 write a blogpost about it too. As I mentioned in a
 [previous post](../beth-aitman-on-writing-effective-documentation-at-lead-dev-berlin-2019), I'm a big fan of Joel Chippindale's
 [talk and blogpost](https://blog.mocoso.co.uk/talks/2015/01/12/telling-stories-through-your-commits/) about "telling stories through your commits". My talk
-largely builds on his post in the hopes of convincing readers of the value 
+largely builds on his post in the hopes of convincing readers of the value
 of good commit messages, not only on the technical side, but also on the business side.
 
 ## Why we write code
+
 Have you ever looked at a line of code and wondered:
 
-* What (on Earth) was the previous dev thinking?
-* I've tried to understand how this works and I can't - is there someone I can ask about this?
-* This line should *obviously* be done in $OSTENSIBLY_BETTER_WAY, but why wasn't it?
+- What (on Earth) was the previous dev thinking?
+- I've tried to understand how this works and I can't - is there someone I can ask about this?
+- This line should _obviously_ be done in $OSTENSIBLY_BETTER_WAY, but why wasn't it?
 
 These questions, which inevitably arise in any developer's mind when working
-with others, hearken back to the **philosophy of programming** itself. 
-We don't write code for the machine - we write it for other developers. Let 
-me repeat that. We don't write code for the machine - *we write it for other 
-developers.* What does this really mean?
+with others, hearken back to the **philosophy of programming** itself.
+We don't write code for the machine - we write it for other developers. Let
+me repeat that. We don't write code for the machine - _we write it for other
+developers._ What does this really mean?
 
-One of the first lessons in any undergrad intro course to Java, C, or any 
+One of the first lessons in any undergrad intro course to Java, C, or any
 compiled language is that the human-readable source code is first compiled into a machine-readable format, then executed. This process indicates some fundamental truths:
 
 1. The machine-readable format is not necessarily human-readable.
@@ -46,11 +47,11 @@ compiled language is that the human-readable source code is first compiled into 
 
 It's the third truth that's most interesting to our discussion. Rare is the line of code that's last seen by human eyes as it's written. In fact, it's fair to say that almost every line of code costs time at least twice: first when it's written, and once again every time it's read.
 
-When we write code, we (hopefully) intersperse it with comments to help explain *how* it solves the problem at hand. For example, I've included a comment preceding a [Bash function](https://github.com/jidicula/clang-format-action/blob/master/entrypoint.sh) for capturing and returning the exit status of `clang-format` on a C file:
+When we write code, we (hopefully) intersperse it with comments to help explain _how_ it solves the problem at hand. For example, I've included a comment preceding a [Bash function](https://github.com/jidicula/clang-format-action/blob/master/entrypoint.sh) for capturing and returning the exit status of `clang-format` on a C file:
 
 ![comments][comments]
 
-But what about the *what* and the *why* of our code? These are essentially our thoughts on the code we're writing - how can we save a snapshot of these thoughts along with our code?
+But what about the _what_ and the _why_ of our code? These are essentially our thoughts on the code we're writing - how can we save a snapshot of these thoughts along with our code?
 
 ## Enter version control
 
@@ -58,13 +59,14 @@ Fortunately, we have a wonderful tool called Git for version control. But why do
 
 ![git-save-checkpoint][git-save-checkpoint]
 
-When we're collaborating with a team, it is critical to our work to have a *consensus of the how* - everyone must be on the same page with our repository source code. Git is a version control system that consists of chains of commits that tell the shared history of our codebase. Each commit is a hashed object containing:
-  * a parent commit hash, telling us the ancestry of this point in the code history
-  * the diff, which is essentially a transformation matrix on the previous state (parent commit) of the code, telling us how this state of the code is reached
-  * a timestamp, telling us when the change was made
-  * the commit author, telling us who made the change
-  * and of course, the commit message, which (ideally) tells us what was changed and why it was changed.
-  
+When we're collaborating with a team, it is critical to our work to have a _consensus of the how_ - everyone must be on the same page with our repository source code. Git is a version control system that consists of chains of commits that tell the shared history of our codebase. Each commit is a hashed object containing:
+
+- a parent commit hash, telling us the ancestry of this point in the code history
+- the diff, which is essentially a transformation matrix on the previous state (parent commit) of the code, telling us how this state of the code is reached
+- a timestamp, telling us when the change was made
+- the commit author, telling us who made the change
+- and of course, the commit message, which (ideally) tells us what was changed and why it was changed.
+
 It's worth noting that 4 out of 5 of these attributes are autogenerated by Git, with the last being left up to the commit's author. So how can we use this shared history to bring everyone to a consensus with the what and the why of our code?
 
 There's a brilliant builtin feature in Git called `blame` - it tells us, line by line, what commit (and author) is responsible for changes in each line, hence its name. Here's what the blame view looks like in the Magit plugin for Emacs:
@@ -75,18 +77,18 @@ This feature, like many things in the software development world, can be describ
 
 ## The 7 rules for commit messages
 
-*Credit to [Chris Beams](https://chris.beams.io/posts/git-commit/)*
+_Credit to [Chris Beams](https://chris.beams.io/posts/git-commit/)_
 
 1. Separate subject body with a blank line.
 2. Limit subject line to 50 characters.
 3. Capitalize the subject line.
 4. No ending punctuation in the subject line (to save space).
 5. Use the imperative mood (not past tense!)
-   * "This commit will [your title]" is a good way to check if the tense is correct.
+   - "This commit will [your title]" is a good way to check if the tense is correct.
 6. Wrap the commit body at 72 chars (terminal-friendly!).
 7. Body contains what and why, not the how (the diff has this already).
 
-These are a lot of things to remember, but following these guidelines even roughly can dramatically ease code-spelunking done by our colleagues (or us, 6 months into the future). Fortunately, Git has *another* feature to help us not have to remember these things every time: commit message templates.
+These are a lot of things to remember, but following these guidelines even roughly can dramatically ease code-spelunking done by our colleagues (or us, 6 months into the future). Fortunately, Git has _another_ feature to help us not have to remember these things every time: commit message templates.
 
 ```
 [type][module] TITLE 50 CHARS
@@ -110,9 +112,10 @@ https://linktoissue)
 
 ```
 
-*This template is shared publicly in my [`dotfiles` repo](https://github.com/jidicula/dotfiles/blob/master/commit-message).*
+_This template is shared publicly in my [`dotfiles` repo](https://github.com/jidicula/dotfiles/blob/master/commit-message)._
 
 To use a template, we just have to save it to a textfile, then modify our git config, either globally in `~/.gitconfig`, or for the relevant repo in `relevant-repo/.git/config`:
+
 ```
 [commit]
 	template = ~/path/to/commit-message
@@ -142,18 +145,18 @@ So with that, we've gone into the nitty-gritty details on how to include better 
 
 Most of the technical value unlocked lies in the git commands that we can leverage to better understand code history
 
-* `git blame`: as mentioned before, we can see the commits that changed a line of code
-* `git log`: see all repository commits
-* `git log --grep="commit msg contents"`: search repository commits for messages matching your grep pattern
-* `git log -S "diff contents"`: search repository commits for diffs containing your grep pattern
+- `git blame`: as mentioned before, we can see the commits that changed a line of code
+- `git log`: see all repository commits
+- `git log --grep="commit msg contents"`: search repository commits for messages matching your grep pattern
+- `git log -S "diff contents"`: search repository commits for diffs containing your grep pattern
 
 ## Unlocking business value with Git commit messages
 
 Remember those 3 questions from the beginning of this post?
 
-* What (on Earth) was the previous dev thinking?
-* I've tried to understand how this works and I can't - is there someone I can ask about this?
-* This line should *obviously* be done in $OSTENSIBLY_BETTER_WAY, but why wasn't it?
+- What (on Earth) was the previous dev thinking?
+- I've tried to understand how this works and I can't - is there someone I can ask about this?
+- This line should _obviously_ be done in $OSTENSIBLY_BETTER_WAY, but why wasn't it?
 
 What's the cost of diving into a problem without having the answers to those questions?
 
@@ -167,7 +170,7 @@ Unlocking this value requires a shift in mindset about commit messages. They are
 
 ## Wrap-up
 
-My call to action for you is to *commit* to writing messages that add value to the code, for the sake of yourself, your colleagues, and your stakeholders.
+My call to action for you is to _commit_ to writing messages that add value to the code, for the sake of yourself, your colleagues, and your stakeholders.
 
 Questions? Comments? Write to me at johanan+blog@forcepush.tech.
 

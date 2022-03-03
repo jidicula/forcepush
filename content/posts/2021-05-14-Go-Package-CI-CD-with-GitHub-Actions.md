@@ -52,12 +52,12 @@ Finally, we can use [golangci-lint's provided GitHub Action](https://github.com/
 jobs:
   lint:
     name: Lint files
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: actions/setup-go@v2
         with:
-          go-version: '1.16.4'
+          go-version: "1.16.4"
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2.5.2
         with:
@@ -69,15 +69,15 @@ jobs:
 Again, we need to checkout the repo for this job and set up the Go version:
 
 ```yaml
-    name: Run tests
-    runs-on: 'ubuntu-latest'
-    needs: lint
-    steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: actions/setup-go@v2
-        with:
-          go-version: '1.16.4'
-      - run: go test -v -cover
+name: Run tests
+runs-on: "ubuntu-latest"
+needs: lint
+steps:
+  - uses: actions/checkout@v2.3.4
+  - uses: actions/setup-go@v2
+    with:
+      go-version: "1.16.4"
+  - run: go test -v -cover
 ```
 
 Note that unlike Python, no setup is needed to install dependencies (`go test` automatically grabs dependencies defined in `go.mod`) or set up a virtual environment, so there's a lot less boilerplate in CI/CD.
@@ -95,19 +95,19 @@ and the Go compiler will build a binary that will run on the OS specified in `GO
 We want to verify build stability across this set, so we can set up a matrix build for different GOOS and GOARCH options using GitHub Actions:
 
 ```yaml
-  build:
-    runs-on: 'ubuntu-latest'
-    needs: test
-    strategy:
-      matrix:
-        goosarch:
-          - 'aix/ppc64'
-          - 'android/amd64'
-          - 'android/arm64'
-          - 'darwin/amd64'
-          - 'darwin/arm64'
-          - 'dragonfly/amd64'
-          # ...
+build:
+  runs-on: "ubuntu-latest"
+  needs: test
+  strategy:
+    matrix:
+      goosarch:
+        - "aix/ppc64"
+        - "android/amd64"
+        - "android/arm64"
+        - "darwin/amd64"
+        - "darwin/arm64"
+        - "dragonfly/amd64"
+        # ...
 ```
 
 This is defined in the [`jobs.<job_id>.strategy.matrix` directive](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix). I've added just 1 variable for every GOOS and GOARCH pairing (truncated for this blogpost - there are [39 pairs defined in my workflow file](https://github.com/jidicula/random-standup/blob/291b9a3cccdad0fece3c061029ecadb7c0676bc5/.github/workflows/build.yml#L42)).
@@ -123,23 +123,23 @@ You can see an example of how this matrix run looks like in the GitHub Actions c
 We do our usual checkout and Go version setup, then some basic Bash string-splitting on the `/` character so we can set the `GOOS` and `GOARCH` environment variables separately from a single matrix option:
 
 ```yaml
-      - name: Get OS and arch info
-        run: |
-          GOOSARCH=${{matrix.goosarch}}
-          GOOS=${GOOSARCH%/*}
-          GOARCH=${GOOSARCH#*/}
-          BINARY_NAME=${{github.repository}}-$GOOS-$GOARCH
-          echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
-          echo "GOOS=$GOOS" >> $GITHUB_ENV
-          echo "GOARCH=$GOARCH" >> $GITHUB_ENV
+- name: Get OS and arch info
+  run: |
+    GOOSARCH=${{matrix.goosarch}}
+    GOOS=${GOOSARCH%/*}
+    GOARCH=${GOOSARCH#*/}
+    BINARY_NAME=${{github.repository}}-$GOOS-$GOARCH
+    echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
+    echo "GOOS=$GOOS" >> $GITHUB_ENV
+    echo "GOARCH=$GOARCH" >> $GITHUB_ENV
 ```
 
 Then, we simply run Go's `go build` subcommand, which creates the binary:
 
 ```yaml
-      - name: Build
-        run: |
-          go build -o "$BINARY_NAME" -v
+- name: Build
+  run: |
+    go build -o "$BINARY_NAME" -v
 ```
 
 ## Auto-merge
@@ -162,7 +162,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 ```
 
 Then, we define our `release` job, running on Ubuntu (cheapest and fastest GitHub Actions runner environment):
@@ -173,7 +173,7 @@ name: Create Release
 jobs:
   autorelease:
     name: Create Release
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
 ```
 
 I also set up the same [GOOS and GOARCH build matrix](https://github.com/jidicula/random-standup/blob/291b9a3cccdad0fece3c061029ecadb7c0676bc5/.github/workflows/release-draft.yml#L42) as in `build.yml` - when we create the GitHub release, we'll build and upload the binaries as release assets.
@@ -181,28 +181,28 @@ I also set up the same [GOOS and GOARCH build matrix](https://github.com/jidicul
 Our first 2 steps are almost the same as our Build workflow for pushes and PRs to `main`: we checkout the repo and set up Go. Our checkout step is slightly different, though: we provide `0` to the `fetch-depth` input so we make a deep clone with all commits, not a shallow clone with just the most recent commit.
 
 ```yaml
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2
+    with:
+      fetch-depth: 0
 ```
 
 Go specifies module versions using version control tagging, so we don't need to parse any manifest files like we did with Python. So, we can do the same Bash string splitting as before and build the binary:
 
 ```yaml
-      - name: Get OS and arch info
-        run: |
-          GOOSARCH=${{matrix.goosarch}}
-          GOOS=${GOOSARCH%/*}
-          GOARCH=${GOOSARCH#*/}
-          BINARY_NAME=${{github.repository}}-$GOOS-$GOARCH
-          echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
-          echo "GOOS=$GOOS" >> $GITHUB_ENV
-          echo "GOARCH=$GOARCH" >> $GITHUB_ENV
-      - name: Build
-        run: |
-          go build -o "$BINARY_NAME" -v
+- name: Get OS and arch info
+  run: |
+    GOOSARCH=${{matrix.goosarch}}
+    GOOS=${GOOSARCH%/*}
+    GOARCH=${GOOSARCH#*/}
+    BINARY_NAME=${{github.repository}}-$GOOS-$GOARCH
+    echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
+    echo "GOOS=$GOOS" >> $GITHUB_ENV
+    echo "GOARCH=$GOARCH" >> $GITHUB_ENV
+- name: Build
+  run: |
+    go build -o "$BINARY_NAME" -v
 ```
 
 The next step is to create some release notes. I keep a release template in the `.github` folder and append some gitlog output to it:
@@ -217,14 +217,14 @@ That gnarly gitlog command is checking all commits since the last tag to HEAD. F
 Finally, we use a [3rd-party release creation Action](https://github.com/softprops/action-gh-release) for creating a release draft with the release notes and artifacts we just created:
 
 ```yaml
-      - name: Release with Notes
-        uses: softprops/action-gh-release@v1
-        with:
-          body_path: ".github/RELEASE-TEMPLATE.md"
-          draft: true
-          files: ${{env.BINARY_NAME}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- name: Release with Notes
+  uses: softprops/action-gh-release@v1
+  with:
+    body_path: ".github/RELEASE-TEMPLATE.md"
+    draft: true
+    files: ${{env.BINARY_NAME}}
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 This creates a draft visible at https://github.com/jidicula/random-standup/releases. I modify the release announcements as needed, and publish the release.
@@ -264,13 +264,13 @@ So overall, working on this project would involve:
 1. Make a PR for my changes.
 2. Confirm auto-merge.
 3. Repeeat Steps 1 and 2 until I'm ready to release.
-5. Create a tag on `main` pointing to the version bump commit.
-6. Push the tag to GitHub.
-7. Wait for the [Create Release](https://github.com/jidicula/random-standup/actions/workflows/release.yml) run to finish.
-8. Go to https://github.com/jidicula/random-standup/releases and modify the Announcements for the just-created release draft.
-9. Publish the release.
-10. Wait for the [Publish](https://github.com/jidicula/random-standup/actions/workflows/publish.yml) run to finish.
-11. Check [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup) for the updated package version.
+4. Create a tag on `main` pointing to the version bump commit.
+5. Push the tag to GitHub.
+6. Wait for the [Create Release](https://github.com/jidicula/random-standup/actions/workflows/release.yml) run to finish.
+7. Go to https://github.com/jidicula/random-standup/releases and modify the Announcements for the just-created release draft.
+8. Publish the release.
+9. Wait for the [Publish](https://github.com/jidicula/random-standup/actions/workflows/publish.yml) run to finish.
+10. Check [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup) for the updated package version.
 
 If you have any questions or comments, email me at johanan+blog@forcepush.tech, find me on Twitter [@jidiculous](http://twitter.com/jidiculous), or post a comment [here](https://dev.to/jidicula/go-package-ci-cd-with-github-actions-350o).
 

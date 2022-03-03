@@ -3,10 +3,10 @@ title: "Writing a Simple CLI Program: Python vs Go"
 date: 2021-05-01 14:00:00 -0400
 excerpt: "Once again, Python was not as simple as Go."
 tags:
- - Python
- - Go
- - CLI
- - CI/CD
+  - Python
+  - Go
+  - CLI
+  - CI/CD
 ---
 
 As I mentioned in a [previous post](/how-the-dnd-digital-hr-app-dev-team-does-agile-rituals), I'm currently the Scrum Master of the DND Digital HR AppDev team. One of my duties is running the daily standup meetings, where each team member gives their update on what they're up to and if they have any impediments. Since we're a distributed team, we have our standups via an audio call. When I first started running standups, I found that when we did popcorn updates, there was always an awkward pause between updates because no one wanted to go next. I quickly decided on having a defined order in standups, but to also randomize the order to keep things varied. This was pretty simple to implement in a hardcoded Python script that uses `random.shuffle()`:
@@ -37,13 +37,13 @@ and I could easily copy and paste this output into our meeting chat a few minute
 
 # The Rewrite
 
-A few weeks ago, I began learning Go. I like it, *a lot*. Go seems very C-like, without the manual memory management footguns and a small syntax simpler than even C's already-sparse lexicon. As part of my journey, I thought it would be an interesting exercise to rewrite my little standup randomizer program in Go, with the following additional requirements:
+A few weeks ago, I began learning Go. I like it, _a lot_. Go seems very C-like, without the manual memory management footguns and a small syntax simpler than even C's already-sparse lexicon. As part of my journey, I thought it would be an interesting exercise to rewrite my little standup randomizer program in Go, with the following additional requirements:
 
-* [generalized](https://github.com/jidicula/random-standup/blob/50789159f04985ee063f7fa92fc02cf7a83bb23f/random-standup.go#L83): no hardcoding of team members, preferably reading in a [TOML](./why-toml) file defining the team roster
-* covered by [tests](https://github.com/jidicula/random-standup/blob/50789159f04985ee063f7fa92fc02cf7a83bb23f/random-standup_test.go)
-* publishable to [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup)
-* [installable to PATH](https://github.com/jidicula/random-standup/tree/main#usage) with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
-* pure CI/CD [PR checks](https://github.com/jidicula/random-standup/blob/main/.github/workflows/build.yml) and [autoreleases](https://github.com/jidicula/random-standup/blob/main/.github/workflows/release-draft.yml)
+- [generalized](https://github.com/jidicula/random-standup/blob/50789159f04985ee063f7fa92fc02cf7a83bb23f/random-standup.go#L83): no hardcoding of team members, preferably reading in a [TOML](./why-toml) file defining the team roster
+- covered by [tests](https://github.com/jidicula/random-standup/blob/50789159f04985ee063f7fa92fc02cf7a83bb23f/random-standup_test.go)
+- publishable to [pkg.go.dev](https://pkg.go.dev/github.com/jidicula/random-standup)
+- [installable to PATH](https://github.com/jidicula/random-standup/tree/main#usage) with [`go get`](https://golang.org/ref/mod#go-get) (I discovered [`go install`](https://golang.org/ref/mod#go-install) later)
+- pure CI/CD [PR checks](https://github.com/jidicula/random-standup/blob/main/.github/workflows/build.yml) and [autoreleases](https://github.com/jidicula/random-standup/blob/main/.github/workflows/release-draft.yml)
 
 This was the final result: https://github.com/jidicula/random-standup.
 
@@ -118,6 +118,7 @@ foo-bar
     ├── __init__.py
     └── test_foo_bar.py
 ```
+
 (This pretty filetree output is courtesy of [`tree`](http://mama.indstate.edu/users/ice/tree/), which is also available via Homebrew.)
 
 This seemed to be a format more geared towards a Python package intended to be a library imported by other projects - probably overkill for a CLI tool. After some digging, I instead followed the [structure recommended by the Python Packaging Authority](https://packaging.python.org/tutorials/packaging-projects/#creating-the-package-files):
@@ -154,6 +155,7 @@ foo
     ├── test_advanced.py
     └── test_basic.py
 ```
+
 Overall, quite similar to what I went with, minus the `src/` directory that doesn't seem to do much, and replacing `pyproject.toml` and `poetry.lock` with `setup.py` and `requirements.txt`. I didn't really try exploring different options at the time, as I wasn't sure if Poetry would be able to build the wheels with different project structures.
 
 All of this to say, packaging and file structure wasn't as immediately obvious with Python as it was with Go.
@@ -170,12 +172,12 @@ There are also some other programmatic ways to trigger addition of a package to 
 Once again, Python was not as simple as Go. My choice to use [Poetry][poetry] certainly simplified the process - I just had to run `poetry publish --build` and follow the prompts for PyPI username and password authentication. It's even simpler in my CI configs, as Poetry and PyPI allow token-based authentication - my [GitHub Actions workflow publishing step](https://github.com/jidicula/random-standup-py/blob/545bf6a98e04450b256ab594514efadffe2755e1/.github/workflows/publish.yml#L47-L52) looks like this:
 
 ```yaml
-      - name: Publish to PyPI
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          poetry config pypi-token.pypi $PYPI_TOKEN
-          poetry publish --build
+- name: Publish to PyPI
+  env:
+    PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+  run: |
+    poetry config pypi-token.pypi $PYPI_TOKEN
+    poetry publish --build
 ```
 
 If I was doing this in Python before I had learned about Go, this process would seem pretty straightforward. The main issue I have with even this simplified process is needing a PyPI account. This ostensibly helps prevent supply-chain attacks like [dependency confusion](https://arstechnica.com/information-technology/2021/02/supply-chain-attack-that-fooled-apple-and-microsoft-is-attracting-copycats/), where an account shadows the name of an internal package, or typo-squats a popular package in the hopes that a fat-fingered developer types a bit too hastily. However, I'm not sure if PyPI actually does any vetting for malicious packages - my package wasn't checked, to the best of my knowledge. On the other hand, Go took the rather sensible route of deferring any security concerns to the forge (i.e. GitHub, GitLab, Bitbucket, etc) hosting a module's source code and having no authentication step of its own. Since Go modules are named by their location (forge and username) as well as the package name itself, it's a bit trickier to shadow a company-internal package name with one published to `pkg.go.dev`. Additionally, typo-squatting is certainly still possible.
@@ -265,6 +267,7 @@ coverage: 55.8% of statements
 ok  	github.com/jidicula/random-standup	0.010s
 $ go tool cover -html=count.out
 ```
+
 you get a heatmap of test coverage, where colour intensity indicates how many times a line is covered by unit testing:
 ![go test coverage heatmap](../assets/go-cover-heatmap.png)
 
@@ -288,7 +291,7 @@ $ pytest
 ============================= test session starts ==============================
 platform darwin -- Python 3.8.2, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
 rootdir: /Users/johanan/prog/random-standup-py
-collected 1 item                                                               
+collected 1 item
 
 tests/test_random_standup.py .                                           [100%]
 

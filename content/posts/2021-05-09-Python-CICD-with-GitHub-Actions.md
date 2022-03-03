@@ -3,9 +3,9 @@ title: Python Package CI/CD with GitHub Actions
 date: 2021-05-09 12:06:23 -0400
 excerpt:
 tags:
- - Python
- - CI/CD
- - GitHub Actions
+  - Python
+  - CI/CD
+  - GitHub Actions
 ---
 
 In a [previous post](https://forcepush.tech/writing-a-simple-cli-program-python-vs-go), I alluded to having pure CI/CD checks and autoreleases for my random-standup program. I wanted to ensure that:
@@ -45,7 +45,7 @@ First, we have to checkout the repository in GitHub Actions using [GitHub's own 
 jobs:
   black-formatting-check:
     name: Check formatting
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -54,32 +54,32 @@ jobs:
 
 ## Running a job across different build environments
 
-GitHub Actions provides matrix build functionality where you provide the option set for each variable and it runs the dependent steps with the [n-ary Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product#n-ary_Cartesian_product) of these *n* variable option sets:
+GitHub Actions provides matrix build functionality where you provide the option set for each variable and it runs the dependent steps with the [n-ary Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product#n-ary_Cartesian_product) of these _n_ variable option sets:
 
 ```yaml
-  build:
-    runs-on: ${{ matrix.os }}
-    needs: black-formatting-check
-    strategy:
-      matrix:
-        os:
-          - 'ubuntu-latest'
-          - 'macos-latest'
-          - 'windows-latest'
-        python-version:
-          - '3.7'
-          - '3.8'
-          - '3.9'
+build:
+  runs-on: ${{ matrix.os }}
+  needs: black-formatting-check
+  strategy:
+    matrix:
+      os:
+        - "ubuntu-latest"
+        - "macos-latest"
+        - "windows-latest"
+      python-version:
+        - "3.7"
+        - "3.8"
+        - "3.9"
 ```
 
 This is defined in the [`jobs.<job_id>.strategy.matrix` directive](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix). I've added 2 variables: one for OS (with Ubuntu, macOS, and Windows as options) and one for Python version (with 3.7, 3.8, and 3.9 as options). This means that everything in the `build` job will run on every combination of OS and Python version options:
 
-* Ubuntu, Python 3.7
-* Ubuntu, Python 3.8
-* Ubuntu, Python 3.9
-* macOS, Python 3.7
-* macOS, Python 3.8
-* etc
+- Ubuntu, Python 3.7
+- Ubuntu, Python 3.8
+- Ubuntu, Python 3.9
+- macOS, Python 3.7
+- macOS, Python 3.8
+- etc
 
 Note that the `runs-on` directive is defined as `${{ matrix.os }}` which points to the value of the `os` variable in the current runner. Internally, the steps are somewhat like:
 
@@ -94,63 +94,63 @@ You can see an example of how this matrix run looks like in the GitHub Actions c
 Again, we need to checkout the repo for this job and set up the Python version. The key difference with the Python version setup here compared to the Black formatting job is that the Python version is specified and points to the matrix option for `python-version`:
 
 ```yaml
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{matrix.python-version}}
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2
+  - name: Setup Python
+    uses: actions/setup-python@v2
+    with:
+      python-version: ${{matrix.python-version}}
 ```
 
 Then, we need to set up the dependencies for the program to ensure it can run. I used Poetry for dependency and virtual environment management, and it's not included with any of the runner [environments](https://github.com/actions/virtual-environments), so we have to install it in a workflow step. Installing it takes some time, though, so to speed up my workflow runtime, I "permanently" cache Poetry using [GitHub's provided `cache` action](https://github.com/actions/cache). I only run the installation step if the cache is missed, which won't happen since the key is constant for each OS/Python version combination.
 
 ```yaml
-      # Perma-cache Poetry since we only need it for checking pyproject version
-      - name: Cache Poetry
-        id: cache-poetry
-        uses: actions/cache@v2.1.5
-        with:
-          path: ~/.poetry
-          key: ${{ matrix.os }}-poetry
-      # Only runs when key from caching step changes
-      - name: Install latest version of Poetry
-        if: steps.cache-poetry.outputs.cache-hit != 'true'
-        run: |
-          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-      # Poetry still needs to be re-prepended to the PATH on each run, since
-      # PATH does not persist between runs.
-      - name: Add Poetry to $PATH
-        run: |
-          echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-      - name: Get Poetry version
-        run: poetry --version
+# Perma-cache Poetry since we only need it for checking pyproject version
+- name: Cache Poetry
+  id: cache-poetry
+  uses: actions/cache@v2.1.5
+  with:
+    path: ~/.poetry
+    key: ${{ matrix.os }}-poetry
+# Only runs when key from caching step changes
+- name: Install latest version of Poetry
+  if: steps.cache-poetry.outputs.cache-hit != 'true'
+  run: |
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+# Poetry still needs to be re-prepended to the PATH on each run, since
+# PATH does not persist between runs.
+- name: Add Poetry to $PATH
+  run: |
+    echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+- name: Get Poetry version
+  run: poetry --version
 ```
 
 Then, I do another caching step for dependencies and install them if `poetry.lock` has changed:
 
 ```yaml
-      - name: Check pyproject.toml validity
-        run: poetry check --no-interaction
-      - name: Cache dependencies
-        id: cache-deps
-        uses: actions/cache@v2.1.5
-        with:
-          path: ${{github.workspace}}/.venv
-          key: ${{ matrix.os }}-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: ${{ matrix.os }}-
-      - name: Install deps
-        if: steps.cache-deps.cache-hit != 'true'
-        run: |
-          poetry config virtualenvs.in-project true
-          poetry install --no-interaction
+- name: Check pyproject.toml validity
+  run: poetry check --no-interaction
+- name: Cache dependencies
+  id: cache-deps
+  uses: actions/cache@v2.1.5
+  with:
+    path: ${{github.workspace}}/.venv
+    key: ${{ matrix.os }}-${{ hashFiles('**/poetry.lock') }}
+    restore-keys: ${{ matrix.os }}-
+- name: Install deps
+  if: steps.cache-deps.cache-hit != 'true'
+  run: |
+    poetry config virtualenvs.in-project true
+    poetry install --no-interaction
 ```
 
 Finally, once dependency and virtual environment setup is done, I run pytest:
 
 ```yaml
-      - name: Run tests
-        run: poetry run pytest -v
+- name: Run tests
+  run: poetry run pytest -v
 ```
 
 ## Test build stability
@@ -158,8 +158,8 @@ Finally, once dependency and virtual environment setup is done, I run pytest:
 For testing build stability, we simply run Poetry's `build` subcommand, which creates the build artifacts:
 
 ```yaml
-      - name: Build artifacts
-        run: poetry build
+- name: Build artifacts
+  run: poetry build
 ```
 
 ## Auto-merge
@@ -182,7 +182,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 ```
 
 Then, we define our `autorelease` job, running on Ubuntu (cheapest and fastest GitHub Actions runner environment):
@@ -193,17 +193,17 @@ name: Create Release
 jobs:
   autorelease:
     name: Create Release
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
 ```
 
 Our first 2 steps are almost the same as our Build workflow for pushes and PRs to `main`: we checkout the repo and set up Poetry. Our checkout step is slightly different, though: we provide `0` to the `fetch-depth` input so we make a deep clone with all commits, not a shallow clone with just the most recent commit.
 
 ```yaml
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2
+    with:
+      fetch-depth: 0
 ```
 
 The Poetry setup steps are identical, so I won't include them here.
@@ -211,16 +211,16 @@ The Poetry setup steps are identical, so I won't include them here.
 Then, we use Poetry to get the project version from `pyproject.toml`, store it in an environment variable, then check if the tag version matches the project version:
 
 ```yaml
-      - name: Add version to environment vars
-        run: |
-          PROJECT_VERSION=$(poetry version --short)
-          echo "PROJECT_VERSION=$PROJECT_VERSION" >> $GITHUB_ENV
-      - name: Check if tag version matches project version
-        run: |
-          TAG=$(git describe HEAD --tags --abbrev=0)
-          echo $TAG
-          echo $PROJECT_VERSION
-          if [[ "$TAG" != "v$PROJECT_VERSION" ]]; then exit 1; fi
+- name: Add version to environment vars
+  run: |
+    PROJECT_VERSION=$(poetry version --short)
+    echo "PROJECT_VERSION=$PROJECT_VERSION" >> $GITHUB_ENV
+- name: Check if tag version matches project version
+  run: |
+    TAG=$(git describe HEAD --tags --abbrev=0)
+    echo $TAG
+    echo $PROJECT_VERSION
+    if [[ "$TAG" != "v$PROJECT_VERSION" ]]; then exit 1; fi
 ```
 
 This is a bit of a guardrail because of how I trigger the autorelease. I update the `pyproject.toml` version on my local clone using `poetry version <version>`, commit it to `main`, then tag it with the same `<version>` and push the commit and the tag, which then starts this workflow. We need to ensure that the version tag and the `pyproject.toml` versions match (in case we forget to bump versions properly).
@@ -239,16 +239,16 @@ That gnarly gitlog command is checking all commits since the last tag to HEAD. F
 Finally, we use a [3rd-party release creation Action](https://github.com/softprops/action-gh-release) for creating a release draft with the release notes and artifacts we just created:
 
 ```yaml
-      - name: Create Release Draft
-        uses: softprops/action-gh-release@v1
-        with:
-          body_path: ".github/RELEASE-TEMPLATE.md"
-          draft: true
-          files: |
-            dist/random_standup-${{env.PROJECT_VERSION}}-py3-none-any.whl
-            dist/random-standup-${{env.PROJECT_VERSION}}.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- name: Create Release Draft
+  uses: softprops/action-gh-release@v1
+  with:
+    body_path: ".github/RELEASE-TEMPLATE.md"
+    draft: true
+    files: |
+      dist/random_standup-${{env.PROJECT_VERSION}}-py3-none-any.whl
+      dist/random-standup-${{env.PROJECT_VERSION}}.tar.gz
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 This creates a draft visible at https://github.com/jidicula/random-standup-py/releases. I modify the release announcements as needed, and publish the release.
@@ -269,12 +269,12 @@ on:
 We do the same checkout and Poetry setup as before. Then, we simply run `poetry publish --build` using a PyPI token as a GitHub Secrets environment variable for authentication:
 
 ```yaml
-      - name: Publish to PyPI
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          poetry config pypi-token.pypi $PYPI_TOKEN
-          poetry publish --build
+- name: Publish to PyPI
+  env:
+    PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+  run: |
+    poetry config pypi-token.pypi $PYPI_TOKEN
+    poetry publish --build
 ```
 
 # Putting it all together
@@ -296,4 +296,3 @@ So overall, working on this project would involve:
 If you have any questions or comments, email me at johanan+blog@forcepush.tech or post a comment [here](https://dev.to/jidicula/python-ci-cd-with-github-actions-2e26).
 
 Did you find this post useful? Buy me a beverage or sponsor me [here](https://github.com/sponsors/jidicula)!
-
