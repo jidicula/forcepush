@@ -33,6 +33,7 @@
         "gatsby-plugin-react-helmet": "^5.11.0",
         "gatsby-plugin-sharp": "^4.11.0",
         "gatsby-plugin-sitemap": "^5.11.1",
+        "gatsby-plugin-theme-ui": "^0.14.1",
         "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.27",
         "gatsby-remark-images": "^6.11.1",
         "gatsby-source-git": "^1.1.0",
