@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
+import { jsx, Themed } from "theme-ui";
 import { Link } from "gatsby";
 import BlogListItem from "./blog-list-item";
 
@@ -24,9 +24,9 @@ const Listing = ({ posts, className, showTags = true }: ListingProps) => (
   <section sx={{ mb: [5, 6, 6] }} className={className}>
     <div style={{ textAlign: "right" }}>
       subscribe{" "}
-      <Styled.a as={Link} to={"/rss.xml"} sx={{ textDecoration: `underline` }}>
+      <Themed.a as={Link} to={"/rss.xml"} sx={{ textDecoration: `underline` }}>
         via RSS
-      </Styled.a>
+      </Themed.a>
     </div>
     {posts.map((post) => (
       <BlogListItem key={post.slug} post={post} showTags={showTags} />

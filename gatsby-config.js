@@ -131,14 +131,14 @@ module.exports = {
                 feeds: [
                     {
                         serialize: ({ query: { site, allPost } }) =>
-                        allPost.nodes.map((post) => {
-                            const url = site.siteMetadata.siteUrl + post.slug
-                            const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`
+                        allPost.nodes.map((MdxPost) => {
+                            const url = site.siteMetadata.siteUrl + MdxPost.slug
+                            const content = `<p>${MdxPost.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`
 
                             return {
-                                title: post.title,
-                                date: post.date,
-                                excerpt: post.excerpt,
+                                title: MdxPost.title,
+                                date: MdxPost.date,
+                                excerpt: MdxPost.excerpt,
                                 url,
                                 guid: url,
                                 custom_elements: [{ "content:encoded": content }],
@@ -157,7 +157,7 @@ module.exports = {
               }
             `,
                         output: `rss.xml`,
-                        title: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+                        title: `force push`,
                     },
                 ],
             },
