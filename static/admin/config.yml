@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: jidicula/jidicula.github.io
+  repo: jidicula/forcepush
 
 media_folder: content/assets
 public_folder: ../assets
