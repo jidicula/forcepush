@@ -38,7 +38,7 @@ jobs:
           restore-keys: ${{matrix.os}}-${{matrix.node-version}}-
       - name: Install dependencies
         if: steps.cache-deps.cache-hit != 'true'
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Cache build
         id: cache-build
         uses: actions/cache@v2.1.5
