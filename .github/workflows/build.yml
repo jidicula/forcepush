@@ -18,9 +18,9 @@ jobs:
       matrix:
         os:
           - 'ubuntu-latest'
-          - 'macos-11'
+          - 'macos-12'
         node-version:
-          - '17'
+          - '18'
       fail-fast: false
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
           restore-keys: ${{matrix.os}}-${{matrix.node-version}}-
       - name: Install dependencies
         if: steps.cache-deps.cache-hit != 'true'
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Cache build
         id: cache-build
         uses: actions/cache@v2.1.5

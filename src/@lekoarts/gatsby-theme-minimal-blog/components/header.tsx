@@ -4,9 +4,8 @@ import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navig
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
-import { Flex } from "@theme-ui/components";
 import { Link } from "gatsby";
-import { jsx, Styled, useColorMode } from "theme-ui";
+import { Flex, jsx, Styled, useColorMode } from "theme-ui";
 import theme from "../../../gatsby-plugin-theme-ui/index.js";
 
 const Header = () => {
