@@ -20,7 +20,6 @@ jobs:
           - 'ubuntu-latest'
           - 'macos-12'
         node-version:
-          - '17'
           - '18'
       fail-fast: false
     steps:
