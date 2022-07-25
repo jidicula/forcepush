@@ -11,7 +11,7 @@ tags:
  - GitHub Actions
 ---
 
-In a [previous post](https://forcepush.tech/python-package-ci-cd-with-git-hub-actions), I wrote about how I implemented CI/CD checks and autoreleases for the Python implementation of my random-standup program. I also developed some similar workflows for the Go implementation, so I thought I'd also write a Go-flavoured post about packaging CI/CD using GitHub Actions. This post may seem very familiar if you read that previous post - as I described in my [comparison between the Go and Python implementations of this program](https://forcepush.tech/writing-a-simple-cli-program-python-vs-go), my CI/CD goals are the same: PR checks and autoreleases.
+In a [previous post](./python-package-ci-cd-with-git-hub-actions), I wrote about how I implemented CI/CD checks and autoreleases for the Python implementation of my random-standup program. I also developed some similar workflows for the Go implementation, so I thought I'd also write a Go-flavoured post about packaging CI/CD using GitHub Actions. This post may seem very familiar if you read that previous post - as I described in my [comparison between the Go and Python implementations of this program](./writing-a-simple-cli-program-python-vs-go), my CI/CD goals are the same: PR checks and autoreleases.
 
 As I said before, I wanted to ensure that:
 

@@ -54,7 +54,7 @@ I ended up opting for the resume-repo-as-a-dependency route using the [gatsby-so
     },
 ```
 
-This adds my resume to [https://forcepush.tech/jidicula-resume/jidicula-resume.pdf](https://forcepush.tech/jidicula-resume/jidicula-resume.pdf). The cherry on top was a [Netlify feature allowing redirects from a custom slug](https://docs.netlify.com/configure-builds/file-based-configuration/#redirects) so my resume is also available at [http://forcepush.tech/resume](http://forcepush.tech/resume) (which redirects to the first link).
+This adds my resume to [https://forcepush.tech/jidicula-resume/jidicula-resume.pdf](./jidicula-resume/jidicula-resume.pdf). The cherry on top was a [Netlify feature allowing redirects from a custom slug](https://docs.netlify.com/configure-builds/file-based-configuration/#redirects) so my resume is also available at [http://forcepush.tech/resume](http://forcepush.tech/resume) (which redirects to the first link).
 
 Now the issue of forcing a "reinstall" of that dependency each time I pushed to my resume repo. Enter Netlify's [build hooks](https://docs.netlify.com/configure-builds/build-hooks/). By running 
 

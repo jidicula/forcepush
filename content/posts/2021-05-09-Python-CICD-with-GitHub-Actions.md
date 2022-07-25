@@ -8,7 +8,7 @@ tags:
  - GitHub Actions
 ---
 
-In a [previous post](https://forcepush.tech/writing-a-simple-cli-program-python-vs-go), I alluded to having pure CI/CD checks and autoreleases for my random-standup program. I wanted to ensure that:
+In a [previous post](./writing-a-simple-cli-program-python-vs-go), I alluded to having pure CI/CD checks and autoreleases for my random-standup program. I wanted to ensure that:
 
 1. Each change I make to my program won't break existing functionality (Continuous Integration), and
 2. Publishing a new release to PyPI is automatic (Continuous Delivery/Deployment).
