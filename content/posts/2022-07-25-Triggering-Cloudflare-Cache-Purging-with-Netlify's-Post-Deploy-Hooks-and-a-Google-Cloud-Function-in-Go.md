@@ -156,6 +156,6 @@ Overall, I'm pretty satisfied with this cache-purging solution - it meets all my
   * ✅ Don't purge needlessly, because I assume that rebuilding and propagating an unchanged cache to Cloudflare's edge is compute-expensive
   * ✅ Don't pay for anything
 
-If you have any questions or comments, email me at johanan+blog@forcepush.tech, find me on Twitter [@jidiculous](http://twitter.com/jidiculous), or post a comment.
+If you have any questions or comments, email me at johanan+blog@forcepush.tech, find me on Twitter [@jidiculous](http://twitter.com/jidiculous), or post a comment [here](https://dev.to/jidicula/triggering-cloudflare-cache-purging-with-netlifys-post-deploy-hooks-and-a-google-cloud-function-in-go-26ke).
 
 Did you find this post useful? Buy me a beverage or sponsor me [here](https://github.com/sponsors/jidicula)!
