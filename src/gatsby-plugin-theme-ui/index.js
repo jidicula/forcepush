@@ -51,9 +51,9 @@ const theme = merge(tailwind, {
   },
   fontWeights: {
     body: 300,
-    heading: 200,
+    heading: 400,
     bold: 400,
-    medium: 200,
+    medium: 500,
   },
   styles: {
     root: {

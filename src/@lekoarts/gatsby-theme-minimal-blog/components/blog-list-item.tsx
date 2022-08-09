@@ -29,6 +29,7 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
         fontSize: [1, 2, 3],
         color: `text`,
         textDecoration: `underline`,
+        fontWeight: `heading`,
       }}
     >
       {post.title}
