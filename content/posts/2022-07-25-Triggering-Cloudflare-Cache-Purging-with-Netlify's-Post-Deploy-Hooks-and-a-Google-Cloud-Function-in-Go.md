@@ -39,7 +39,7 @@ In my Netlify deploy config, I had a couple of options for triggering the Cloudf
 
 The `curl` approach seemed a bit kludge-y since it has to be `&&`-chained with an already lengthy `rm -rf public/jidicula-resume && npm run build` command, and I didn't like the idea of using a single-line text field for a multi-command script. This also wouldn't strictly be a post-*deploy* cache purge, because this is the build command config that runs at the *beginning* of a deploy run, not the end.
 
-Hitting the purge endpoint before the deploy begins opens up 2 failure modes that obviate the benefits of automating a purge:
+Hitting the purge endpoint before the deploy begins opens up 2 failure modes that negate the benefits of automating a purge:
   * the cache gets purged before deploy and the deploy subsequently fails: the cache is rebuilt using the last successful deploy -> **no-change cache rebuild**
   * the cache gets purged before deploy and the deploy is successful, but slow: the cache is rebuilt before the deploy completes, so it still contains the last deploy's stale content -> **no-change cache rebuild**
 
