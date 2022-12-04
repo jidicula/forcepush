@@ -38,7 +38,7 @@
         "mdx-embed": "^1.1.2",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
-        "react-icons": "^4.6.0"
+        "react-icons": "^4.7.1"
     },
     "devDependencies": {
         "@mdx-js/react": "^1.6.22",
