@@ -22,7 +22,7 @@
         "gatsby-omni-font-loader": "^2.0.2",
         "gatsby-plugin-feed": "^4.25.0",
         "gatsby-plugin-gatsby-cloud": "^4.24.1",
-        "gatsby-plugin-google-analytics": "^5.5.0",
+        "gatsby-plugin-google-analytics": "^5.6.0",
         "gatsby-plugin-manifest": "^4.25.0",
         "gatsby-plugin-mdx": "^3.20.0",
         "gatsby-plugin-mdx-embed": "^1.1.3",
