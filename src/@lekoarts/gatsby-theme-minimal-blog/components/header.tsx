@@ -18,8 +18,9 @@ const Header = () => {
     setColorMode(isDark ? `light` : `dark`);
   };
 
-  return (
+	return (
     <header sx={{ mb: [5, 5] }}>
+	  <script data-goatcounter="https://forcepush.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
         <Link
           to={replaceSlashes(`/${basePath}`)}
