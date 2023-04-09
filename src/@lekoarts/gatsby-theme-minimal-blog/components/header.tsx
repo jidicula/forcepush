@@ -18,7 +18,9 @@ const Header = () => {
     setColorMode(isDark ? `light` : `dark`);
   };
 
-  return (
+	return (
+	  <script data-goatcounter="https://forcepush.goatcounter.com/count"
+      async src="//gc.zgo.at/count.js"></script>
     <header sx={{ mb: [5, 5] }}>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
         <Link
