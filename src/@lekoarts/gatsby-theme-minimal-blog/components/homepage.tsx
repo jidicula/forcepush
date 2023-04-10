@@ -7,7 +7,7 @@ import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom";
 import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero";
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 import { Link } from "gatsby";
-import { jsx, Styled } from "theme-ui";
+import { jsx } from "theme-ui";
 
 import Listing from "./listing";
 

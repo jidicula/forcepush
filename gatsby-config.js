@@ -17,6 +17,7 @@ module.exports = {
         siteImage: "/forcepush-banner.png",
         author: "Johanan Idicula",
     },
+	trailingSlash: `never`,
     plugins: [
         {
             resolve: "gatsby-plugin-google-analytics",
@@ -50,16 +51,15 @@ module.exports = {
         {
             resolve: `gatsby-omni-font-loader`,
             options: {
+				mode: `render-blocking`,
                 enableListener: true,
-                preconnect: [`https://fonts.gstatic.com`],
+                preconnect: [`https://fonts.cdnfonts.com`],
                 // If you plan on changing the font you'll also need to adjust the Theme UI config to edit the CSS
                 // See: https://github.com/LekoArts/gatsby-themes/tree/main/examples/minimal-blog#changing-your-fonts
-                web: [
-                    {
-                        name: `IBM Plex Sans`,
-                        file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap`,
-                    },
-                ],
+                web: [{
+                        name: "SF Mono",
+                        file: "https://fonts.cdnfonts.com/css/sf-mono",
+                },],
             },
         },
         `gatsby-plugin-sitemap`,
@@ -144,18 +144,16 @@ module.exports = {
                                 custom_elements: [{ "content:encoded": content }],
                             }
                         }),
-                        query: `
-              {
-                allPost(sort: { fields: date, order: DESC }) {
-                  nodes {
-                    title
-                    date(formatString: "MMMM D, YYYY")
-                    excerpt
-                    slug
-                  }
-                }
-              }
-            `,
+                        query: `{
+  allPost(sort: {date: DESC}) {
+    nodes {
+      title
+      date(formatString: "MMMM D, YYYY")
+      excerpt
+      slug
+    }
+  }
+}`,
                         output: `rss.xml`,
                         title: `force push`,
                     },
