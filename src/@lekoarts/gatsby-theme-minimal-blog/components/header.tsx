@@ -5,7 +5,7 @@ import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 import { Link } from "gatsby";
-import { Flex, jsx, Styled, useColorMode } from "theme-ui";
+import { Flex, jsx, useColorMode } from "theme-ui";
 import theme from "../../../gatsby-plugin-theme-ui/index.js";
 
 const Header = () => {
@@ -52,21 +52,9 @@ const Header = () => {
           flexFlow: `wrap`,
         }}
       >
-        <Navigation nav={nav} />
-        {externalLinks && externalLinks.length > 0 && (
-          <div
-            sx={{
-              "a:not(:first-of-type)": { ml: 1 },
-              fontSize: [1, `18px`],
-              fontWeight: `${theme.fontWeights.heading}`,
-            }}
-          >
-            {externalLinks.map((link) => (
-              <Styled.a key={link.url} href={link.url}>
-                {link.name}
-              </Styled.a>
-            ))}
-          </div>
+		<Navigation nav={nav} />
+		{externalLinks && externalLinks.length > 0 && (
+		<HeaderExternalLinks />
         )}
       </div>
     </header>

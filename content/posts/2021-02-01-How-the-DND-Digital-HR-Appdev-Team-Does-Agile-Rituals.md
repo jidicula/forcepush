@@ -30,7 +30,7 @@ Finally, the implementation summary helps inform our estimation when we plan siz
 ## 0-1 Days before End of Sprint: Sprint Pre-planning Meeting
 ### Attending: Scrum Master, Product Team, Extra Developer, Dev Manager
 
-In this ritual, members of the Product team share the prioritized tasks that our stakeholder wants done in the next sprint. The Scrum Master and the extra developer may comment on each task and what might be involved from a technical standpoint. <!-- why is the Dev Manager in this meeting? -->
+In this ritual, members of the Product team share the prioritized tasks that our stakeholder wants done in the next sprint. The Scrum Master and the extra developer may comment on each task and what might be involved from a technical standpoint.
 
 The Scrum Master and extra developer may also propose inclusion of a few *developer-dessert* tickets. These tickets may not immediately bring value to the stakeholder, but tend to improve developer morale. Such tickets may involve refactoring, improving CI/CD, or R&D on new tools or technologies to adopt.
 

@@ -2,7 +2,7 @@
 import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags";
 import { Link } from "gatsby";
 import React from "react";
-import { Box, jsx, Themed } from "theme-ui";
+import { Box, jsx, } from "theme-ui";
 
 type BlogListItemProps = {
   post: {
@@ -21,19 +21,10 @@ type BlogListItemProps = {
 };
 
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
-  <Box mb={4}>
-    <Themed.a
-      as={Link}
-      to={post.slug}
-      sx={{
-        fontSize: [1, 2, 3],
-        color: `text`,
-        textDecoration: `underline`,
-        fontWeight: `heading`,
-      }}
-    >
-      {post.title}
-    </Themed.a>
+	<Box mb={4}>
+	  <Link to={post.slug} sx={(t) => ({ ...t.styles?.a, fontSize: [1, 2, 3], color: `text` })}>
+	  {post.title}
+	  </Link>
     <p
       sx={{
         color: `secondary`,
@@ -54,10 +45,10 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
     </p>
     <p>
       <span>{post.excerpt}</span>
-      {"  "}
-      <Themed.a as={Link} to={post.slug} sx={{ textDecoration: `underline` }}>
+        {"  "}
+        <Link to={post.slug} sx={{ textDecoration: `underline` }}>
         Read more...
-      </Themed.a>
+        </Link>
     </p>
   </Box>
 );

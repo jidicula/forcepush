@@ -1,5 +1,5 @@
-import { tailwind } from "@theme-ui/presets";
 import { merge } from "theme-ui";
+import originalTheme from "@lekoarts/gatsby-theme-minimal-blog/src/gatsby-plugin-theme-ui/index";
 
 // One Light Colours
 const lightBackground = "#ffffff";
@@ -19,8 +19,8 @@ const darkBlue = "#61afef";
 const darkGrey = "#abb2bf";
 const darkSecondaryGrey = "#5c6270";
 
-const theme = merge(tailwind, {
-  useColorSchemeMediaQuery: true,
+const theme = merge(originalTheme, {
+  useColorSchemeMediaQuery: `system`,
   useCustomProperties: true,
   colors: {
     primary: lightBlue,
@@ -45,9 +45,8 @@ const theme = merge(tailwind, {
     },
   },
   fonts: {
-    body:
-      '"Helvetica Neue", -apple-system, BlinkMacSystemFont,"Segoe UI", "Noto Sans", sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
-    monospace: '"Roboto Mono"',
+      body: `"Helvetica Neue", -apple-system, BlinkMacSystemFont,"Segoe UI", "Noto Sans", sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
+      monospace: `monospace`,
   },
   fontWeights: {
     body: 300,

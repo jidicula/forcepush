@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
-import { jsx, Styled } from "theme-ui"
+import { jsx, Link } from "theme-ui"
 import theme from "../../../gatsby-plugin-theme-ui/index.js"
 
 import { IconContext } from "react-icons"
@@ -38,7 +38,7 @@ const Footer = () => {
         variant: `dividers.top`,
       }}
     >
-      <Styled.a aria-label="License" href="/">
+      <Link aria-label="License" href="/">
         <h1
           sx={{
             my: 0,
@@ -48,87 +48,87 @@ const Footer = () => {
         >
           {siteTitle}
         </h1>
-      </Styled.a>
+      </Link>
       <IconContext.Provider
         value={{ style: { verticalAlign: "middle" }, size: "1.2em" }}
       >
         <div class="column">
           <div class="row">
-            <Styled.a
+            <Link
               aria-label="License"
               href="https://github.com/jidicula/forcepush/blob/master/LICENSE"
             >
               <FaCopyright /> {new Date().getFullYear()} {author}{" "}
-            </Styled.a>
+            </Link>
           </div>
           <div class="row">
             <div class="column">
-              <Styled.a
+              <Link
                 aria-label="Email"
                 href="mailto:johanan+blog@forcepush.tech"
               >
                 <FaPaperPlane /> johanan+blog@forcepush.tech
-              </Styled.a>
+              </Link>
             </div>
           </div>
         </div>
         <div class="column">
           <div class="row">
-            <Styled.a
+            <Link
               aria-label="GitHub Profile"
               href="https://github.com/jidicula"
             >
               <FaGithubSquare />
-            </Styled.a>{" "}
-            <Styled.a
+            </Link>{" "}
+            <Link
               aria-label="LinkedIn Profile"
               href="https://www.linkedin.com/in/jidicula"
             >
               <FaLinkedin />
-            </Styled.a>{" "}
-            <Styled.a
+            </Link>{" "}
+            <Link
               aria-label="Medium Profile"
               href="https://medium.com/@jidicula"
             >
               <FaMedium />
-            </Styled.a>{" "}
-            <Styled.a
+            </Link>{" "}
+            <Link
               aria-label="Stack Overflow"
               href="https://stackoverflow.com/users/6310633/jidicula"
             >
               <FaStackOverflow />
-            </Styled.a>{" "}
-            <Styled.a
+            </Link>{" "}
+            <Link
               aria-label="Hacker News"
               href="https://news.ycombinator.com/user?id=jidiculous"
             >
               <FaHackerNews />
-            </Styled.a>{" "}
-            <Styled.a aria-label="Twitter" href="http://twitter.com/jidiculous">
+            </Link>{" "}
+            <Link aria-label="Twitter" href="http://twitter.com/jidiculous">
               <FaTwitterSquare />
-            </Styled.a>{" "}
-            <Styled.a aria-label="DEV" href="https://dev.to/jidicula">
+            </Link>{" "}
+            <Link aria-label="DEV" href="https://dev.to/jidicula">
               <FaDev />
-            </Styled.a>
+            </Link>
           </div>
         </div>
         <div class="column">
           <div class="row">Musings and how-to's </div>
           <div class="row">
             <FaLaptopCode /> with <FaHeart /> and{" "}
-            <Styled.a
+            <Link
               aria-label="Theme Repository"
               href="https://github.com/krubenok/nerd-ramblings"
             >
               <FaPalette />
-            </Styled.a>{" "}
+            </Link>{" "}
             on{" "}
-            <Styled.a
+            <Link
               aria-label="GitHub Repository"
               href="https://github.com/jidicula/forcepush"
             >
               <FaGithub />
-            </Styled.a>
+            </Link>
           </div>
         </div>
       </IconContext.Provider>
