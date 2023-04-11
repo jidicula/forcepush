@@ -1,26 +1,30 @@
 /** @jsx jsx */
-import ColorModeToggle from "@lekoarts/gatsby-theme-minimal-blog/src/components/colormode-toggle";
-import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navigation";
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
-import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
-import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
-import { Link } from "gatsby";
-import { Flex, jsx, useColorMode } from "theme-ui";
-import theme from "../../../gatsby-plugin-theme-ui/index.js";
+import ColorModeToggle from "@lekoarts/gatsby-theme-minimal-blog/src/components/colormode-toggle"
+import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navigation"
+import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
+import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
+import { Link } from "gatsby"
+import { Flex, jsx, useColorMode } from "theme-ui"
+import theme from "../../../gatsby-plugin-theme-ui/index.js"
 
 const Header = () => {
-  const { siteTitle } = useSiteMetadata();
-  const { navigation: nav, externalLinks, basePath } = useMinimalBlogConfig();
-  const [colorMode, setColorMode] = useColorMode();
-  const isDark = colorMode === `dark`;
+  const { siteTitle } = useSiteMetadata()
+  const { navigation: nav, externalLinks, basePath } = useMinimalBlogConfig()
+  const [colorMode, setColorMode] = useColorMode()
+  const isDark = colorMode === `dark`
   const toggleColorMode = (e: unknown) => {
-    e.preventDefault();
-    setColorMode(isDark ? `light` : `dark`);
-  };
+    e.preventDefault()
+    setColorMode(isDark ? `light` : `dark`)
+  }
 
-	return (
+  return (
     <header sx={{ mb: [5, 5] }}>
-	  <script data-goatcounter="https://forcepush.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+      <script
+        data-goatcounter="https://forcepush.goatcounter.com/count"
+        async
+        src="//gc.zgo.at/count.js"
+      ></script>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
         <Link
           to={replaceSlashes(`/${basePath}`)}
@@ -52,13 +56,11 @@ const Header = () => {
           flexFlow: `wrap`,
         }}
       >
-		<Navigation nav={nav} />
-		{externalLinks && externalLinks.length > 0 && (
-		<HeaderExternalLinks />
-        )}
+        <Navigation nav={nav} />
+        {externalLinks && externalLinks.length > 0 && <HeaderExternalLinks />}
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
