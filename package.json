@@ -32,7 +32,7 @@
     "gatsby-plugin-sharp": "^5.9.0",
     "gatsby-plugin-sitemap": "^6.9.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.30",
-    "gatsby-remark-images": "^7.0.0",
+    "gatsby-remark-images": "^7.9.0",
     "gatsby-source-filesystem": "^5.9.0",
     "gatsby-source-git": "^1.1.0",
     "gatsby-transformer-remark": "^6.0.0",
