@@ -30,7 +30,7 @@
     "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-plugin-offline": "^6.0.0",
     "gatsby-plugin-sharp": "^5.9.0",
-    "gatsby-plugin-sitemap": "^6.0.0",
+    "gatsby-plugin-sitemap": "^6.9.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.30",
     "gatsby-remark-images": "^7.0.0",
     "gatsby-source-filesystem": "^5.0.0",
