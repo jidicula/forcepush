@@ -35,7 +35,7 @@
     "gatsby-remark-images": "^7.9.0",
     "gatsby-source-filesystem": "^5.9.0",
     "gatsby-source-git": "^1.1.0",
-    "gatsby-transformer-remark": "^6.0.0",
+    "gatsby-transformer-remark": "^6.9.0",
     "mdx-embed": "^1.1.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
