@@ -24,7 +24,7 @@
     "gatsby-plugin-feed": "^5.11.0",
     "gatsby-plugin-gatsby-cloud": "^5.11.0",
     "gatsby-plugin-google-analytics": "^5.10.0",
-    "gatsby-plugin-manifest": "^5.10.0",
+    "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-mdx": "^5.10.0",
     "gatsby-plugin-mdx-embed": "^1.1.3",
     "gatsby-plugin-netlify": "^5.1.0",
