@@ -16,7 +16,7 @@
     "start": "gatsby develop"
   },
   "dependencies": {
-    "@lekoarts/gatsby-theme-minimal-blog": "^6.1.2",
+    "@lekoarts/gatsby-theme-minimal-blog": "^6.2.0",
     "@theme-ui/components": "^0.16.1",
     "@theme-ui/presets": "^0.16.1",
     "gatsby": "^5.11.0",
