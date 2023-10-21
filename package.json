@@ -21,7 +21,7 @@
     "@theme-ui/presets": "^0.16.1",
     "gatsby": "^5.12.7",
     "gatsby-omni-font-loader": "^2.0.2",
-    "gatsby-plugin-feed": "^5.12.1",
+    "gatsby-plugin-feed": "^5.12.2",
     "gatsby-plugin-gatsby-cloud": "^5.12.1",
     "gatsby-plugin-google-analytics": "^5.12.0",
     "gatsby-plugin-manifest": "^5.12.1",
