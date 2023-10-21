@@ -28,7 +28,7 @@
     "gatsby-plugin-mdx": "^5.12.1",
     "gatsby-plugin-mdx-embed": "^1.1.3",
     "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-offline": "^6.12.1",
+    "gatsby-plugin-offline": "^6.12.2",
     "gatsby-plugin-sharp": "^5.12.2",
     "gatsby-plugin-sitemap": "^6.12.2",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.31",
