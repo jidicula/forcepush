@@ -22,7 +22,7 @@
     "gatsby": "^5.12.8",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.12.2",
-    "gatsby-plugin-gatsby-cloud": "^5.12.1",
+    "gatsby-plugin-gatsby-cloud": "^5.12.2",
     "gatsby-plugin-google-analytics": "^5.12.0",
     "gatsby-plugin-manifest": "^5.12.3",
     "gatsby-plugin-mdx": "^5.12.3",
