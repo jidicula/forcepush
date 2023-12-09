@@ -19,7 +19,7 @@
     "@lekoarts/gatsby-theme-minimal-blog": "^6.2.1",
     "@theme-ui/components": "^0.16.1",
     "@theme-ui/presets": "^0.16.1",
-    "gatsby": "^5.12.11",
+    "gatsby": "^5.12.12",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.12.3",
     "gatsby-plugin-gatsby-cloud": "^5.12.2",
