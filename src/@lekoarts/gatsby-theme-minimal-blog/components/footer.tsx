@@ -16,7 +16,7 @@ import {
   FaMedium,
   FaStackOverflow,
   FaHackerNews,
-  FaTwitterSquare,
+  FaMastodon,
   FaDev,
 } from "react-icons/fa"
 
@@ -104,8 +104,8 @@ const Footer = () => {
             >
               <FaHackerNews />
             </Link>{" "}
-            <Link aria-label="Twitter" href="http://twitter.com/jidiculous">
-              <FaTwitterSquare />
+            <Link aria-label="Mastodon" href="https://hachyderm.io/@jidiculous">
+              <FaMastodon />
             </Link>{" "}
             <Link aria-label="DEV" href="https://dev.to/jidicula">
               <FaDev />
