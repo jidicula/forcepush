@@ -18,7 +18,7 @@
   "dependencies": {
     "@lekoarts/gatsby-theme-minimal-blog": "^6.2.4",
     "@theme-ui/components": "^0.17.2",
-    "@theme-ui/presets": "^0.17.1",
+    "@theme-ui/presets": "^0.17.2",
     "gatsby": "^5.14.1",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.14.0",
