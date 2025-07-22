@@ -3,7 +3,6 @@
   environment = { NPM_FLAGS = "--legacy-peer-deps" }
 
 [[plugins]]
-package = "netlify-plugin-gatsby-cache"
 
 [[redirects]]
 from = "/resume"
