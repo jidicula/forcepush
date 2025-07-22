@@ -2,8 +2,6 @@
   publish = "public"
   environment = { NPM_FLAGS = "--legacy-peer-deps" }
 
-[[plugins]]
-
 [[redirects]]
 from = "/resume"
 to = "/jidicula-resume/jidicula-resume.pdf"
