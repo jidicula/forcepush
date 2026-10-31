@@ -21,6 +21,7 @@ jobs:
           - 'macos-latest'
         node-version:
           - '18'
+          - '24'
       fail-fast: false
     steps:
       - name: Checkout
