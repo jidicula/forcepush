@@ -6,6 +6,9 @@
   "author": "Johanan Idicula <johanan@forcepush.tech>",
   "license": "MIT",
   "starter-name": "gatsby-starter-minimal-blog",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "build": "gatsby build --log-pages",
     "clean": "gatsby clean",
